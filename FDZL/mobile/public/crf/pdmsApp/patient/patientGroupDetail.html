@@ -1,0 +1,823 @@
+<!--数据录入-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title></title>
+	<link href="../../assets/css/mui.min.css?time=1519615230000" rel="stylesheet" />
+	<link href="../../assets/font_eras/iconfont.css?time=1519615230000" rel="stylesheet" />
+	<link href="../../assets/css/mui.picker.min.css?time=1519615230000" rel="stylesheet" />
+	<link href="../../assets/css/icons-extra.css?time=1519615230000" rel="stylesheet" />
+	<link href="../../assets/resource/css/common.css?time=1519615230000" rel="stylesheet" />
+
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?time=1519615230000"> </script>
+	<script src="../../assets/js/mui.min.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.picker.min.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.poppicker.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.zoom.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.previewimage.js?time=1519615230000"></script>
+
+	<script src="../../assets/resource/js/angluarjs.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/angular-animate.js?time=1519615230000"></script>
+	<script src="../../assets/js/jquery.1.9.1.min.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/crfViewAngluar.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/publicAngular.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/publicAngularOnlyView.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/jquery-ui.min.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/jquery.fileupload.js?time=1519615230000"></script>
+
+	<style>
+		.dir-label {
+			color: #2b2b2b;
+		}
+
+		.mui-navigate-right {
+			color: black;
+		}
+
+		.mark {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+
+		.mui-table-view-cell input {
+			border: none;
+			display: inline;
+		}
+
+		.mui-table-view-cell li {
+			list-style-type: none;
+			position: relative;
+			margin-bottom: 10px;
+		}
+
+		.mui-table-view:after {
+			background-color: #FFFFFF;
+		}
+
+		#crfGroupDiv {
+			margin-left: 0px;
+			margin-right: 0px;
+		}
+
+		.mui-card {
+			font-size: 17px;
+		}
+
+		.mui-card .mui-table-view {
+			border-radius: 0px !important;
+		}
+
+		#crfGroup .mui-table-view-cell.mui-active {
+			background-color: #e4e4e4;
+		}
+
+		#confirmBtn {
+			text-align: left;
+			margin-left: 18px;
+		}
+
+		#addGroupEnd .mui-col-xs-1,
+		#isDatasNode .mui-col-xs-1 {
+			width: 20px;
+		}
+
+		#addGroupEnd input,
+		#isDatasNode input {
+			text-align: right;
+		}
+
+		/*.afterTime {
+				text-align: right;
+			}*/
+
+		.paddingRight50 {
+			padding-right: 50px !important;
+		}
+
+		#isDatasNode .mui-navigate-right:after {
+			top: 25px !important;
+		}
+
+		#isDatasNode .fontSize17 {
+			margin-top: 10px;
+			font-size: 16px;
+			margin-bottom: 10px;
+			line-height: 20px;
+		}
+
+		.mui-card .mui-table-view .mui-table-view-cell:first-child {
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+		}
+
+		#crfGroupDiv .mui-collapse {
+			padding-right: 60px !important;
+		}
+
+		input {
+			background-color: white;
+		}
+
+		#crfGroupDiv .paddingRight35 {
+			text-overflow: inherit;
+			overflow: inherit;
+			white-space: inherit;
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-box;
+			display: -o-box;
+			display: box;
+		}
+
+		#crfGroupDiv .col70,
+		#dirAndLeaf .col70,
+		#dirAndLeafCopy .col70 {
+			width: 70% !important;
+			float: left;
+			word-wrap: break-word;
+			word-break: break-all;
+		}
+
+		#crfGroupDiv .col60 {
+			word-wrap: break-word;
+			word-break: break-all;
+			vertical-align: middle;
+		}
+
+		#crfGroupDiv .col25 {
+			text-align: right;
+			display: block;
+			z-index: 2;
+			position: relative;
+			max-width: 50%;
+		}
+
+		#crfGroupDiv .firstLevel {
+			display: inline;
+			word-wrap: break-word;
+			word-break: break-all;
+			vertical-align: middle;
+		}
+
+		.huanhang {
+			overflow: inherit !important;
+			white-space: inherit !important;
+		}
+
+		.huanhang:after {
+			clear: both;
+			content: "";
+			display: table-cell;
+		}
+
+		.whiteSpaceInheirt {
+			white-space: inherit !important;
+			padding-right: 30px !important;
+		}
+
+		.hh {
+			display: inline !important;
+			overflow: inherit !important;
+			white-space: inherit !important;
+		}
+
+		#isDatasNode .OA_task_1 li {
+			padding-top: 0px;
+			padding-bottom: 0px;
+		}
+
+		#saveTableData {
+			margin-top: 30px;
+		}
+
+		#addGroupEnd .btn-choicebox {
+			text-align: left;
+		}
+
+		#dirAndLeafCopy input {
+			background-color: white !important;
+		}
+
+		#dirAndLeaf .col25 .btn-choicebox input {
+			left: 0px;
+		}
+
+		#isDatasAdd .mui-col-xs-3 textarea {
+			position: relative;
+			top: 10px;
+		}
+
+		/*#dirAndLeafCopy*/
+
+		#dirAndLeafCopy .mui-table-view-cell>a:not(.mui-btn).mui-active {
+			background-color: white !important;
+		}
+
+		.huanhang input {
+			text-overflow: ellipsis;
+		}
+
+		#dirAndLeafCopy .btn-choicecircle {
+			max-width: 120px;
+		}
+
+		/*.ui-flex-item {
+				width: 50%;
+			}
+			
+			.mui-text-right {
+				margin-right: 2px;
+			}*/
+
+		.li-padding {
+			padding-right: 40px !important;
+			padding-left: 20px !important;
+		}
+
+		.a-padding {
+			padding-left: 0px !important;
+			margin-left: 0px !important;
+			margin-right: 0px !important;
+			padding-right: 0px !important;
+		}
+
+		.pickClass {
+			word-break: break-all;
+		}
+
+		.img-class {
+			width: 16px;
+			height: 16px;
+		}
+
+		.file-class,
+		.fileFolder {
+			width: 20px;
+			height: 20px;
+		}
+
+		#visitTypeName {
+			font-weight: normal;
+		}
+
+		.index1 {
+			/*margin-right: -10px;*/
+			font-size: 24px;
+		}
+
+		.leaf-li {
+			margin-left: 10px;
+		}
+
+		.icon-wenjianjia {
+			color: #FFD631;
+		}
+
+		.icon-guaijiao {
+			color: #D3D3D3;
+		}
+
+		.icon-wenjian {
+			color: #1B9ADC;
+		}
+
+		.dir-title {
+			background-color: #E7F3F9;
+		}
+
+		.dir-calss label,
+		.dir-calss label~input {
+			width: 60%;
+		}
+
+		.dir-calss label~input {
+			/*padding-right: 35px;*/
+			width: 35%;
+		}
+
+		.dir-calss span,
+		.dir-calss label~span {
+			width: 35%;
+			/*height: 40px;
+				line-height: 40px;*/
+			margin-top: 10px;
+			float: right;
+		}
+
+		.dir-calss div,
+		.dir-calss label~div {
+			/*width: 10%;*/
+		}
+
+		.mui-btn-block {
+			padding: inherit;
+		}
+
+		.dir-span {
+			width: 10%;
+			font-size: 16px;
+			position: absolute;
+			top: 10px;
+			right: 0;
+			text-align: center;
+		}
+
+		.mui-content-padded {
+			margin: 0px;
+			margin-top: 65px;
+		}
+
+		.mulu-class {
+			height: 44px;
+			line-height: 44px;
+			background-color: #FFFFFF;
+		}
+
+		.mulu-col-class-1 {
+			margin-left: 20px;
+			color: #67D3F0;
+		}
+
+		.mulu-color-class {
+			color: #67D3F0;
+		}
+
+		.mui-bar .mui-btn-link {
+			color: #67D3F0;
+		}
+
+		.mui-bar .mui-icon {
+			font-size: 18px;
+		}
+
+		#offCanvasSideScroll {
+			background-color: #efeff4;
+		}
+
+		.icon-iconfont-wenjian {
+			color: #FFDD54;
+			font-size: 20px;
+		}
+
+		.save-class {
+			/*height: 40px;*/
+			line-height: 40px;
+			text-align: right;
+		}
+
+		.save-data {
+			background-color: #67D3F0;
+			position: fixed;
+			bottom: 0px;
+			left: 0;
+			width: 100%;
+			z-index: 100;
+		}
+
+		.iconfont {
+			font-size: 20px;
+		}
+
+		.mui-off-canvas-wrap,
+		.mui-off-canvas-wrap.mui-active {
+			overflow: initial;
+		}
+
+		.mui-scroll-wrapper {
+			overflow: overlay;
+		}
+
+		.mui-checkbox input[type=checkbox]:before,
+		.mui-radio input[type=radio]:before {
+			color: #FFFFFF;
+		}
+
+		.mui-checkbox input[type=checkbox]:checked:before,
+		.mui-radio input[type=radio]:checked:before {
+			color: #FFFFFF;
+		}
+
+		.mui-scroll {}
+
+		.mui-input-group {
+			background-color: #efeff4;
+		}
+
+		.muiGroupFirst {
+			margin-top: 50px;
+			margin-bottom: 50px;
+		}
+
+		.dir-calss,
+		.dir-calss:last-child {
+			background-color: #FFFFFF;
+		}
+
+		#dirAndLeaf,
+		.patient-group-detail {
+			height: 100%;
+		}
+
+		.mui-input-group .mui-input-row {
+			height: initial;
+		}
+
+		p {
+			font-size: 14px;
+			margin-top: 15px;
+			margin-bottom: 10px;
+			color: #8f8f94;
+		}
+
+		.mui-bar-nav~.mui-content {
+			padding-top: 0px;
+		}
+
+		.icon-mulu {
+			margin-top: 3px;
+		}
+
+		#muiBar {
+			background-color: #FFFFFF;
+		}
+
+		.side-status {
+			font-size: 14px;
+			float: right !important;
+
+		}
+
+		.mui-navigate-right.side-row:after,
+		.mui-push-right.side-row:after {
+			right: 10px;
+		}
+
+		#dirAndLeaf ul.mui-table-view .icon-guaijiao {
+			font-size: 14px;
+		}
+
+		.textRight {
+			/*margin-left: -91%;*/
+			padding-top: 5px;
+
+		}
+
+		.plus {
+			position: fixed;
+			top: 80%;
+			z-index: 999;
+			width: 50px;
+			height: 50px;
+			left: 85%;
+			border-radius: 50% 50% 50% 50%;
+			background-color: #ffffff;
+			border: 1px solid #c9c9c9;
+		}
+
+		.plus img {
+			margin-right: 10px;
+			position: absolute;
+			margin-top: 4px;
+			margin-left: 5px;
+		}
+
+
+		.mui-preview-image.mui-fullscreen {
+			position: fixed;
+			z-index: 20;
+			background-color: #000;
+		}
+
+		.mui-preview-header,
+		.mui-preview-footer {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			z-index: 10;
+		}
+
+		.mui-preview-header {
+			height: 44px;
+			top: 0;
+		}
+
+		.mui-preview-footer {
+			height: 50px;
+			bottom: 0px;
+		}
+
+		.mui-preview-header .mui-preview-indicator {
+			display: block;
+			line-height: 25px;
+			color: #fff;
+			text-align: center;
+			margin: 15px auto 4;
+			width: 70px;
+			background-color: rgba(0, 0, 0, 0.4);
+			border-radius: 12px;
+			font-size: 16px;
+		}
+
+		.mui-preview-image {
+			display: none;
+			-webkit-animation-duration: 0.5s;
+			animation-duration: 0.5s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+		}
+
+		.mui-preview-image.mui-preview-in {
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+
+		.mui-preview-image.mui-preview-out {
+			background: none;
+			-webkit-animation-name: fadeOut;
+			animation-name: fadeOut;
+		}
+
+		.mui-preview-image.mui-preview-out .mui-preview-header,
+		.mui-preview-image.mui-preview-out .mui-preview-footer {
+			display: none;
+		}
+
+		.mui-zoom-scroller {
+			position: absolute;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			-webkit-backface-visibility: hidden;
+		}
+
+		.mui-zoom {
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+
+		.mui-slider .mui-slider-group .mui-slider-item img {
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+			width: 100%;
+		}
+
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+			display: inline-table;
+		}
+
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.mui-preview-loading {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+
+		.mui-preview-loading.mui-active {
+			display: block;
+		}
+
+		.mui-preview-loading .mui-spinner-white {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -25px;
+			margin-top: -25px;
+			height: 50px;
+			width: 50px;
+		}
+
+		.mui-preview-image img.mui-transitioning {
+			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+			transition: transform 0.5s ease, opacity 0.5s ease;
+		}
+
+		@-webkit-keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@-webkit-keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		p img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.mui-slider-img-content {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			right: 10px;
+			color: white;
+			text-align: center;
+			line-height: 21px
+		}
+
+		.hiddened {
+			display: none;
+		}
+	</style>
+</head>
+
+<body ng-controller="myController">
+	<div class="mui-content patient-group-detail">
+		<ul class="mui-table-view table-view-title" id="headData">
+			<li class="mui-table-view-cell paddingRight0">
+				<a class="" id="viewEdit">
+					<h4 id="visitTypeName" style="color: #2b2b2b;">
+						</h1>
+						<p class="colorf9f9f" id="visitTimeStr"></p>
+				</a>
+			</li>
+		</ul>
+
+
+		<div id="notCurrentCrf" style="display: none;"></div>
+		<input type="hidden" class="btn btn-basic-lg btn-savecontinue" id="setDataValue" onclick="getPatientInfoValue(2);" />
+		<input type="hidden" id="crfItems" />
+		<input type="hidden" id="notInSameCrfCodes" />
+		<input type="hidden" id="notInSameModuleCodes" />
+
+		<input type="hidden" id="crfItemsA" />
+		<input type="hidden" id="crfItemsB" />
+
+		<input type="hidden" id="crfItems_two" />
+		<input type="hidden" id="crfItems_two_copy" />
+
+		<input type="hidden" id="saveDataError" />
+		<!-- 1 -->
+		<div class="mui-card margin0" id="crfGroupDiv">
+		</div>
+
+		<!-- 2-1 CRF下的第一层数据 -->
+		<div id="dirAndLeaf">
+			<!-- 侧滑导航根容器 -->
+			<div class="mui-off-canvas-wrap mui-draggable">
+				<!-- 菜单容器 -->
+				<aside class="mui-off-canvas-left">
+					<div class="mui-scroll-wrapper" id="offCanvasSideScroll">
+						<div class="mui-scroll" id="muiScroll">
+							<!-- 菜单具体展示内容 -->
+						</div>
+					</div>
+				</aside>
+				<!-- 主页面容器 -->
+				<div class="mui-inner-wrap">
+					<!-- 主页面标题 -->
+					<header class="mui-bar mui-bar-nav" id="muiBar">
+						<!-- <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+						<h1 class="mui-title">标题</h1> -->
+					</header>
+					<div class="mui-content mui-scroll-wrapper" id="offCanvasContentScroll">
+						<div class="mui-scroll">
+							<!-- 主界面具体展示内容 -->
+						</div>
+					</div>
+					<div class="mui-content save-data" id="saveDataCrf">
+						<!--<div class="mui-row">
+							<div class="mui-col-sm-6 mui-col-xs-6">
+								<div class="mui-input-row mui-checkbox mui-left">
+									<label>标记为已完成</label>
+									<input id="completedId" name="checkbox" type="checkbox" checked="checked">
+										
+								</div>
+							</div>
+							<div class="mui-col-sm-5 mui-col-xs-5 save-class" id="saveCrf" onclick="saveDataCrf(149,1,'实验室检查',2)">
+								<i class="mui-icon iconfont icon-baocun"></i>
+								保存并跳转下一页
+							</div>
+						</div> -->
+					</div>
+					<div class="mui-off-canvas-backdrop"></div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- 2-2 非表格下的指标 -->
+		<div id="dirAndLeafCopy">
+		</div>
+
+		<!-- 3 表格型数据 -->
+		<div id="isDatasNode">
+		</div>
+
+		<!-- 4 表格添加 -->
+		<div id="isDatasAdd">
+		</div>
+
+		<!-- 4 表格修改 -->
+		<div id="isDatasModify">
+		</div>
+
+		<!-- 5 -->
+		<div id="addGroupEnd">
+		</div>
+
+		<div id="isDatasHtml" style="display: none;">
+		</div>
+
+		<div id="isDatasHtmlCopy" style="display: none;">
+		</div>
+
+	</div>
+
+	<script src="../../assets/js/string.js?time=1519615230000"></script>
+	<script src="../publicController.js?time=1519615230000"></script>
+	<script src="../../pdmsApp/patient/js/patientGroupDetail.js?time=1519615230000"></script>
+
+	<script>
+		mui.previewImage();
+
+		var titleName = "数据录入";
+		mui('#offCanvasSideScroll').scroll();
+		mui('#offCanvasContentScroll').scroll();
+	</script>
+
+	<!-- <script>
+		$("#dirAndLeaf").on("touchstart", function (e) {
+	　　　　e.preventDefault();
+	　　　　startX = e.originalEvent.changedTouches[0].pageX,
+	　　　　startY = e.originalEvent.changedTouches[0].pageY;
+	　　});
+	　　$("#dirAndLeaf").on("touchmove", function (e) {
+	　　　　e.preventDefault();
+	　　　　moveEndX = e.originalEvent.changedTouches[0].pageX,
+	　　　　moveEndY = e.originalEvent.changedTouches[0].pageY,
+	　　　　X = moveEndX - startX,
+	　　　　Y = moveEndY - startY;
+
+	　　　	if (Y > 0) {
+				//从上到下
+				$('#muiBar').removeClass('hiddened');
+	　　　　}else if (Y < 0) {
+				//从下到上
+				$('#muiBar').addClass('hiddened');
+	　　　　}else {
+				console.log("just touch");
+	　　　　}
+　　　});
+	</script> -->
+</body>
+
+</html>

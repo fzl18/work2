@@ -1,0 +1,458 @@
+import React from 'react'
+import HistoryDetail from '../ConsulHistory/Detail'
+import $ from '../../common/AjaxRequest'
+import moment, { relativeTimeRounding } from 'moment'
+import API_URL from '../../common/url'
+import {Spin, Row,Avatar, Col, Popconfirm,  Card,Table, Form, Input, Select, Icon, Button, Dropdown, Menu, InputNumber, DatePicker, Modal, message, Upload, notification  } from 'antd'
+import Editor from '../common/Editor'
+import '../../common/touchScroll'
+import {config,uploadser} from '../common/config'
+import './style.less'
+
+const FormItem = Form.Item
+const {Option}=Select
+const { TextArea } = Input;
+
+class ListBox extends React.Component {
+  state={
+    submitting:false,
+    previewVisible: false,
+    previewImage:'',
+    loading:false,
+    dataSource:[],
+    fileList:[]
+  }
+
+  handlePreview = (file) => {
+    this.setState({
+      previewImage: file.url || file.thumbUrl,
+      previewVisible: true,      
+    });
+  }
+  
+  handleChange = (index,{ fileList }) => {
+    console.log({fileList})
+    if(fileList.status=="error"){  // 
+      notification['warn']({
+        message: "图片操作出错，请重试！",
+        description: '',
+      })      
+    }
+
+
+    // if(!fileList.response ){  // 
+    //   notification['warn']({
+    //     message: "图片上传出错，请重试！",
+    //     description: '请查看图片服务是否能连上。',
+    //   })      
+    // }
+    
+    this.setState({[`fileList${index}`]:fileList},()=>{
+      setTimeout(()=>{
+        const {dataSource} = this.state
+        dataSource[index].imgList = fileList.map(v=> v.response && v.response.data.map(d=>d.fileName)).join(';')
+        dataSource[index].viewImgList = fileList.map(v=> v.response && v.response.data.map(d=>d.url))
+        this.props.onChange(dataSource)
+      },200)
+    })
+  }
+
+  txtChange=(i,e)=>{
+    const {dataSource} = this.state
+    dataSource[i].txt = e.target.value
+    this.props.onChange(dataSource)
+  }
+
+  componentDidMount(){
+    // let t1 = new TouchScroll({id:'hotscroll','width':5,'opacity':0.5,color:'#555',minLength:20});
+    const {dataSource} = this.props
+    this.setState({dataSource})
+  }
+
+  componentWillReceiveProps(nextprops){
+    console.log(nextprops.dataSource)
+    nextprops.dataSource.map((list,i) =>{
+      const imgs = []
+      list.viewImgList.map((v,j)=>{
+        imgs.push({
+          uid: j,
+          response:{data:[{url:v}]},
+          name: 'xxx.png',
+          status: 'done',
+          url: v,
+          thumbUrl: v,            
+        })
+      })
+      this.setState({
+        [`fileList${i}`]:imgs,
+      })
+    })
+  }
+
+  render(){
+    const {dataSource} = this.state
+    const {previewImage,previewVisible}=this.state
+    const aty={width:50,height:50,lineHeight:'50px',borderRadius:'50%',background:'#eee'}
+    const bty={lineHeight:'50px',fontSize:35,color:'#46C883'}
+    const yty={lineHeight:'50px',fontSize:35,color:'#0088D5'}
+    return (
+      <div id='hotscroll' style={{margin:'0 10px', padding:'15px 20px',maxHeight:"340px",overflowY:'auto',overflowX:'hidden'}}>
+        {dataSource.length>0 && dataSource.map((list,i ) => {
+          
+          return (<Row type="flex" align="top" gutter={2} key={i}>
+              <Col span={2} style={{textAlign:'center'}}>
+              <Avatar style={aty}>
+                <i className={list.type =='patient' ? "iconfont icon-ren" : "iconfont icon-shouye1"} style={list.type =='patient' ? bty:yty} />
+              </Avatar><br /> {list.type =='patient' ? '患者': '医生' }</Col>
+              <Col span={17}>
+                  <Row>
+                      <Col span={24}><TextArea rows={3} value={list.txt} onChange={(value)=>{this.txtChange(i,value)}} /></Col>
+                      {/* <Col span={24} style={{margin:"10px 10px 20px 0"}}>{list.viewImgList.map(img=><img src={img} width='50' height='50' />)}</Col> */}
+                  </Row>
+              </Col>
+              <Col span={2} style={{textAlign:'right'}}>              
+              <Upload
+                action={uploadser}
+                // key={i}
+                listType="picture"
+                fileList= {this.state[`fileList${i}`] || [] } //  {imgs}
+                multiple={true}
+                onPreview={this.handlePreview}
+                onChange={this.handleChange.bind(this,i)}
+              >
+              <a href="javascript:;">
+                <i className="iconfont icon-tianjiatupian" style={{fontSize:70,position:'relative',top:'-15px'}}/>
+              </a>
+              </Upload>
+              </Col>
+              <Col span={3} style={{textAlign:'right'}}><Button type='danger' size='large' style={{position:'relative',top:'20px'}} onClick={()=>{this.props.del(i)}}><i className="iconfont icon-delete"/>删除</Button></Col>
+          </Row>
+        )})}
+        <Modal visible={previewVisible} footer={null} onCancel={()=>{this.setState({previewVisible:false})}}>
+            <img alt="example" style={{ width: '100%' }} src={previewImage} />
+        </Modal>
+      </div>
+    )
+  }
+}
+
+// class FormBox extends React.Component {
+//     state={
+//         submitting:false,
+//         previewVisible: false,
+//         previewImage:'',
+//         fileList:[],
+//         loading:false,
+//     }
+
+//     handlePreview = (file) => {
+//         this.setState({
+//           previewImage: file.url || file.thumbUrl,
+//           previewVisible: true,      
+//         });
+//       }
+    
+//     handleChange = ({ fileList }) => {
+//       console.log(fileList)
+//       if(fileList.status=="error" ){
+//         message.warn("图片上传出错了，请重试！")
+//         fileList = []
+//       }
+//       this.setState({fileList})
+//     }
+
+//     delHtmlTag = (str)=>{
+//       return str.replace(/<[^>]+>/g,"");
+//     }
+
+//     validateHtml=(rule, value, callback)=>{      
+//       if(value){
+//         let html = this.delHtmlTag(value)
+//         if (html) {
+//           callback();
+//           return;
+//         }
+//       }      
+//       callback('请输入内容！');
+//     }
+    
+//     componentDidMount(){
+//       const  { getFieldValue} = this.props.form;
+//       const imgUrl= getFieldValue('mainImgUrl')
+//       const fileList = getFieldValue('mainImgUrl') ? [{
+//         uid: -1,
+//         name: 'xxx.png',
+//         status: 'done',
+//         url: imgUrl
+//       }]: []
+//       this.setState({
+//         fileList
+//       })
+//     }
+
+//     normFile = (rule, value, callback) => {
+//       console.log(typeof value)
+//       if(typeof value =='string'){
+//           callback();
+//           return;
+//       }else if( value && value.fileList.length){
+//         callback();
+//         return;
+//       }
+//       callback('请添加图片');
+//     }
+
+//     render(){
+//         const { getFieldDecorator, getFieldsValue, setFieldsValue} = this.props.form;
+//         const { previewVisible, previewImage, submitting, fileList,loading} = this.state;
+//         const uploadButton = (
+//           <div>
+//             <Icon type="plus" />
+//             <div className="ant-upload-text">上传图片</div>
+//           </div>
+//         );
+//         const formItemLayout = {
+//           labelCol: {
+//             xs: { span: 24 },
+//             sm: { span: 7 },
+//           },
+//           wrapperCol: {
+//             xs: { span: 24 },
+//             sm: { span: 12 },
+//             md: { span: 10 },
+//           },
+//         };
+    
+//         const submitFormLayout = {
+//           wrapperCol: {
+//             xs: { span: 24, offset: 0 },
+//             sm: { span: 10, offset: 7 },
+//           },
+//         };        
+//         return(
+//             <div>            
+//             <Spin spinning={loading}>                
+            
+//             <Form onSubmit={this.props.handleSubmit} style={{ marginTop: 8 }}
+//             >
+//               <FormItem
+//                 {...formItemLayout}
+//                 label="动态标题"
+//               >
+//                 {getFieldDecorator('lastTendencyTitle', {
+//                   rules: [{
+//                     required: true, message: '请输入标题',
+//                   }],
+//                 })(
+//                   <Input placeholder="请输入标题" />
+//                 )}
+//               </FormItem>
+//               <FormItem
+//                 {...formItemLayout}
+//                 label="动态主图"
+//               >
+//                 {getFieldDecorator('mainImgName', {
+//                   rules: [{
+//                     required: true, message: '请添加图片',
+//                     validator: this.normFile,
+//                   }],
+//                 })(
+//                   <Upload
+//                     action={uploadser}
+//                     listType="picture-card"
+//                     fileList={fileList}
+//                     onPreview={this.handlePreview}
+//                     onChange={this.handleChange}
+//                   >
+//                     {fileList.length >= 1 ? null : uploadButton}
+//                   </Upload>              
+//                 )}
+//               </FormItem>
+//               <FormItem {...submitFormLayout} style={{ marginTop: 32 }}>
+//                 <Button type="primary" htmlType="submit" loading={submitting}>
+//                   提交
+//                 </Button>
+//                 <Button style={{ marginLeft: 8 }} >返回</Button>
+//               </FormItem>
+//             </Form>
+//             <Modal visible={previewVisible} footer={null} onCancel={()=>{this.setState({previewVisible:false})}}>
+//                 <img alt="example" style={{ width: '100%' }} src={previewImage} />
+//             </Modal>
+//             </Spin>
+//         </div>          
+//         )
+//     }
+// }
+
+
+export default class Diy extends React.Component {
+    state={
+        loading:false,
+        listData:[],
+        isEdit:false,
+        dataSource:[],
+        doctorList:[],
+        selectDocter:'',
+        editId:null,
+    }
+
+    queryHotConversationDetail =(id)=>{      
+      const options ={
+        method: 'POST',
+        url: API_URL.consul.queryHotConversationDetail,
+        data: {
+          offset:1,
+          conversationId: id,
+        },
+        dataType: 'json',
+        doneResult: data => {
+            if (!data.error) {              
+              const {dataSource}=this.state
+              data.datas.map((v,i)=>{
+                dataSource.push({
+                  type:!v.ydataAccount.accType ? 'patient' : 'doctor',
+                  txt:v.msg,
+                  imgList:v.mediaId,
+                  viewImgList:v.mediaIdurl
+                })
+              })
+              this.setState({
+                dataSource,
+                selectDocter:data.data.counselor,
+              })
+            } else {
+                Modal.error({ title: data.error });
+            }
+        }
+      }
+      $.sendRequest(options)
+    }
+    
+    addList=(name)=>{
+      const {dataSource}=this.state
+      dataSource.push({
+        type:name,
+        txt:'',
+        imgList:[],
+        viewImgList:[],
+      })
+      this.setState({
+        dataSource
+      })
+    }
+
+    del=(i)=>{
+      const {dataSource}=this.state
+      dataSource.splice(i,1)
+      this.setState({dataSource})
+    }
+
+    listChange=(params)=>{
+      this.setState({dataSource:params})
+    }
+
+    save=(params)=>{
+      const {isEdit,editId} = this.state      
+      const options ={
+        method: 'POST',
+        url: isEdit ? API_URL.consul.modifyHotConversationUserDefined : API_URL.consul.addHotConversationUserDefined,
+        data: {
+          ...params,
+          conversationId: isEdit ? editId : null
+        },
+        dataType: 'json',
+        doneResult: data => {
+            if (!data.error) {
+              notification['success']({
+                message: data.success,
+                description: '',
+              })
+              this.props.history.goBack()
+            } else {
+                Modal.error({ title: data.error });
+            }
+        }
+      }
+      $.sendRequest(options)
+    }
+
+    handleSubmit=()=>{
+      // conversationDetails[0].uuid=1,
+      // conversationDetails[1].uuid=2,
+      // conversationDetails[0].msg=字符串,
+      // conversationDetails[1].msg=字符串,
+      // conversationDetails[0].mediaId=图片路径,
+      // conversationDetails[1].mediaId=图片路径
+      const {dataSource,selectDocter}=this.state
+      if(!selectDocter){message.warn('请选择咨询对象！');return }
+      if(dataSource.length < 2){message.warn('至少添加一组！');return }      
+      const params = {}
+      dataSource.map((data,i) =>{
+        params[`conversationDetails[${i}].uuid`] = data.type =="patient" ? '0' : selectDocter
+        params[`conversationDetails[${i}].msg`] = data.txt
+        params[`conversationDetails[${i}].mediaId`] = data.imgList
+      })
+      this.save(params)
+    }
+
+    loadDoctor=()=>{
+      const options ={
+        method: 'POST',
+        url: API_URL.index.queryDepartmentDoctor,
+        data: {
+            offset: 1,
+            limit: 999,
+        },
+        dataType: 'json',
+        doneResult: data => {
+            if (!data.error) {
+                const doctorList = data.datas || data.data;
+                this.setState({
+                  doctorList,
+                });
+            } else {
+                Modal.error({ title: data.error });
+            }
+        }
+    }
+    $.sendRequest(options)
+    }
+
+    componentDidMount(){
+      if(this.props.match.params.id){
+        const editId = this.props.match.params.id
+        this.setState({
+          editId,
+          isEdit:true
+        },()=>{this.queryHotConversationDetail(editId)})
+      }
+      this.loadDoctor()
+    }
+    render(){
+        const {loading,listData,isEdit,dataSource,doctorList,selectDocter}=this.state
+        const {history}=this.props
+        const hty={height:50,lineHeight:'50px'}
+        const aty={width:50,height:50,lineHeight:'50px',borderRadius:'50%',background:'#eee'}
+        return(            
+            <Spin spinning={loading}>
+              <Row gutter={10} style={{borderBottom:"1px solid #eee",padding:15,marginBottom:15,}}>
+                <Col md={8} sm={10} style={hty}><i style={{color:'red'}}> * </i>咨询对象（解答者）：
+                <Select style={{width:120}} value={`${selectDocter}`} onChange={(v)=>{this.setState({selectDocter:v})}}>
+                  {doctorList && doctorList.map(v => <Option key={`${v.userId}`} value={`${v.userId}`}>{v.userCompellation}</Option>)}
+                </Select>
+                </Col>
+                <Col span={4}>
+                  <a href='javascript:;' style={{marginRight:20}} onClick={()=>{this.addList('patient')}}><Avatar style={aty}><i className="iconfont icon-ren" style={{lineHeight:'50px',fontSize:35,color:'#46C883'}}/></Avatar></a>
+                  <a href='javascript:;' onClick={()=>{this.addList('doctor')}}><Avatar style={aty}><i className="iconfont icon-shouye1" style={{lineHeight:'50px',fontSize:35,color:'#0088D5'}}/></Avatar></a>                  
+                </Col>
+                <Col span={8} style={hty}><i style={{color:'red'}}> * </i>点击患者/医生图标，新增一行</Col>
+              </Row>
+              <ListBox dataSource={dataSource} del={this.del} onChange={this.listChange}/>
+              <Row>
+                <Col span={1} push={4}><Button type='primary' onClick={this.handleSubmit}>提交</Button></Col>
+                <Col span={1} push={5}><Button onClick={history.goBack}>返回</Button></Col>
+              </Row>
+            </Spin>
+        )
+    }
+}

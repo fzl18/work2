@@ -1,0 +1,354 @@
+.SetOrder{
+    //height: 300px;
+    background-color: white;
+}
+.Button{
+    width: 90%;
+    height: 42px;
+    margin-Left: 5%;
+    background-Color: rgb(254,130,96);
+    position: relative;
+    line-height: 42px;
+    overflow: hidden;
+    margin-top: 120px;
+    border: 0px;
+    border-radius: 5px;
+}
+.AreaChoose{
+    width: 86%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 10px;
+  :global{
+    .am-tag.am-tag-normal{
+    margin-left: 15px;
+    height: 35px;
+    line-height: 35px;
+    width: 85px;
+    margin-bottom: 20px;
+        }
+    .am-tag-normal{
+    background-color: rgb(242,242,242);
+    border-radius: 0px;
+    }
+    .am-tag.am-tag-active{
+    margin-left: 15px;
+    height: 35px;
+    line-height: 35px;
+    width: 85px;
+    margin-bottom: 20px; 
+    }
+    .am-tag-active{
+    color:#333e4d;
+    background-color: rgb(253,235,231);
+    border-radius: 0px;
+    }
+    .am-tag-active::before{
+    border:none !important;
+    }
+    .am-tag-normal::before{
+    border:none !important;
+    }
+    .am-tag-text{
+    color: #333e4d;
+    }
+    }
+}
+
+.order_form{
+    :global{
+        .am-list-body{
+            &:before{
+                height: 0px !important;
+            }
+        }
+        .date-picker-list .am-list-item .am-list-line .am-list-extra {
+            flex-basis: initial;
+        }
+        .am-list-item .am-list-line .am-list-extra{
+            font-size: 14px;
+            flex-basis: initial;
+            max-width: 55%;
+            color:#000;
+        }
+    }
+}
+
+.checkbox_pop{
+    
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color:#f6f6f6;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    .chenkbox_head{
+        z-index: 20000;
+        width:100%;
+        position: fixed;
+        background-color:#f6f6f6;
+    }
+}
+
+.address_box{
+    padding-right: 40px;
+    padding-left: 25px;
+    position: relative;
+    background-color: #fff;
+    margin-top:25px;
+    padding: 10px 40px 10px 25px;
+    color: #535353;    
+    :global{
+        .icon-gou{
+            position: absolute;
+            color: #2884e0;
+            top: 10px;
+            right: 20px;
+        }
+    }
+    text-align: left;
+    p{
+        word-wrap: break-word;
+    }
+    .address_detail{
+        margin-top: 8px;
+    }
+}
+// zlee 添加无地址信息样式
+.noaddress{
+    vertical-align: middle;
+    padding-top:50%;
+
+    p{
+        font-size: 18px;
+        margin-top:30px;
+    }
+    .addressico
+    {
+        font-size: 80px !important;
+    }
+    .creatnewaddress{
+        color:#1891ff;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+    }
+   
+}
+.alert_balance_not_enough{
+    padding: 30px 0;
+}
+.create_new_address_button{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    .address_Button{
+        width: 90%;
+    height: 42px;
+    margin-Left: 5%;
+    background-Color: rgb(254,130,96);
+    position: relative;
+    line-height: 42px;
+    overflow: hidden;
+    border: 0px;
+    border-radius: 5px;
+    }
+
+}
+
+.estimate_money{
+    
+}
+
+.money_box{
+    color: #000;
+    text-align: right;
+    margin-top:10px;
+    margin-bottom: 10px;
+    .estimate_money{
+        height: 25px;
+        overflow: hidden;
+    }
+    span{
+        display: inline-block;
+        float: right;
+        line-height: 22px;
+    }
+    .totalMoney{
+        display: inline-block;
+        min-width: 100px;
+        color: #fe8260;
+        line-height: 22px;
+        height: 22px;
+        text-align: left;
+        text-indent: 10px;
+        font-size: 22px;
+        padding-right: 5px;
+    }
+    .hour_money{
+        font-size: 12px;
+        color: #888;
+        span{
+            height: 14px;
+            line-height: 14px;
+        }
+        .hourPrice{
+            display: inline-block;
+            min-width: 100px;
+            text-align: left;
+            text-indent: 10px;
+        }
+    }
+}
+
+.agreement{
+    text-align: center;
+    font-size: 10px;
+    margin-top:5px;
+    font-size: 13px;
+    :global{
+        .iconfont{
+            font-size: 13px;
+        }
+    }
+    span{
+        color: #fe8260;
+    }
+}
+
+.ill_time{
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 5px;
+    margin-bottom: 30px;
+    :global{
+        .icon-jinggao2{
+            color:#f6c255;
+            font-size:40px;
+        }
+    }
+    .reset_ico_size{
+        font-size: 50px;
+        margin-top: 10px;
+    }
+    .pfirst{
+        margin-top:22px;
+    }
+    p{
+        padding: 3px 0px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+}
+// 违规 -- 取消服务订单列表
+.ill_cancel_list{
+    
+    .reset_ico_size{
+        font-size: 30px;
+        margin-left: 8px;
+        color:#ec675c;
+       
+    }
+
+}
+
+.illegal_list{
+    :global{
+        text-overflow:initial;
+        white-space:initial;
+        word-break:break-all;
+    }
+}
+
+.ill_bar{
+    :global{
+        .am-list-body,.am-list-item{
+            background-color: #fef898;
+            .am-list-content{
+                color: #fe0000;
+                font-size: 14px;
+            }
+        }
+    }
+}
+.refreshRob{
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background-color: #d8f4dd;
+    z-index: 10;
+}
+
+
+/////
+
+.listshow{
+   
+}
+.dot(@bgcolor){
+    
+        height: 6px; width: 6px;
+        border-radius: 6px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right:8px; 
+        margin-top: -2px;
+        background-color:@bgcolor;
+}
+
+// 项目类型  #31ced0  
+.dot1{
+    .dot(#31ced0)
+}
+//授权工作原理  #d36231
+.dot2{
+    .dot(#d36231)
+}
+//服务人员要求  #b5bb4a
+.dot3{
+    .dot(#b5bb4a)
+}
+// 上门服务 #78b64e
+.dot4{
+    .dot(#78b64e)
+}
+//服务地点 #3075d0
+.dot5{
+    .dot(#3075d0)
+}
+
+.pay{
+    font-size: 16px;
+    color:#fe835f;
+}
+.ServicePrice{
+    background-color: white;
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    line-height: 2;
+    font-size: 15px;
+    color: #333e4d;
+}
+// :global{
+//     .am-modal-button-group-v .am-modal-button{
+//     color: #f5a282 !important;
+//     border-top: 0.1px solid #e9f1ee !important;
+//     font-size: 16px;
+//     }
+//     .am-modal-header{
+//         padding: 0px;
+//     }
+//     .am-modal-alert-content{
+//         font-size: 16px;
+//     }
+//     .am-modal-title{
+//         padding-bottom: 5px;
+//         color: #333e4d;
+//     }
+// }  

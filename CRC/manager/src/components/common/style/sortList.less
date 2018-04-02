@@ -1,0 +1,37 @@
+.degreesort{
+    position: relative;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    list-style: none;
+    padding: 0;
+}
+.sortitem{
+    width:140px;
+    height:34px;
+    line-height:34px;
+    text-align:center;
+    color: #333;
+    font-weight: 500;
+    border:1px solid #eee;
+    overflow:hidden;
+    white-space:nowrap; text-overflow:ellipsis;
+    cursor:move;
+    background-color:#eee;
+    border-radius:5px;
+}
+.sortgrid-item{
+    float: left;
+    margin:5px;
+}
+.sortHelper{
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: row-resize;
+    z-index:1010 !important;
+}
+// .ant-checkbox-group-item{
+//     width:150px !important;
+//     white-space:nowrap; text-overflow:ellipsis;
+//     display:block !important;
+//     float:left;
+// }

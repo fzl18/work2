@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title></title>
+  <link rel="stylesheet" href="/antd-mobile.css" />
+  <link rel="stylesheet" href="/fonts/iconfont.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd-mobile/2.0.0/antd-mobile.min.css" /> -->
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <script src="/js/jweixin-1.0.0.js"></script>
+  <!-- <script src="http://localhost:8900/management/js/pdms-js/jquery1.10.2.js"></script>
+  <script src="http://localhost:8905/public/js/angularjs/angluarjs.js"></script>
+  <script src="http://localhost:8905/public/js/angularjs/angular-animate.js"></script>
+  <script src="http://localhost:8905/public/js/angularjs/crfViewAngluar.js"></script>
+  <script src="http://localhost:8905/public/js/publicAngular.js"></script>
+  <script src="http://localhost:8905/public/js/publicAngular.js"></script> -->
+  
+  <script>
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+      }, false);
+    }
+    if(!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    }
+    window.configs = {
+      ADMIN_URL: 'http://116.62.169.145:12000',
+      //ADMIN_URL: 'http://192.168.10.202:12003',
+      // ADMIN_URL: 'http://192.168.10.152:12003',
+        WS_URL: 'http://192.168.10.202:12300',
+        APPID: 'wx14bd818a0d55492f',
+       // APPID: 'wx3d67296416e82f88',
+        // APPID: 'wx08bfb63f3e73f5f6', //online
+        JSP_URL: 'http://alan.nat300.top',
+        //JSP_URL: 'http://192.168.10.152:12003',
+        DEV: true,
+        SDKDEBUG: false,
+    };
+  </script>
+</head>
+<body ng-controller="myController">
+  <div id="root"></div>
+</body>
+</html>

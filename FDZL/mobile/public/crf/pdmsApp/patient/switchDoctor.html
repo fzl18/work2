@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>动态</title>
+	<link href="../../assets/css/mui.min.css?time=1519615230000" rel="stylesheet" />
+	<link href="../../assets/css/icons-extra.css?time=1519615230000" rel="stylesheet" />
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?time=1519615230000"> </script>
+
+	<style>
+		.mui-content-padded,
+		.mui-table-view-cell {
+			text-align: center;
+		}
+	</style>
+
+</head>
+
+
+<body>
+	<div class="mui-content">
+		<div class="mui-content-padded">
+			<p>请选择你要进入的医生组，查看随访数据</p>
+		</div>
+		<ul class="mui-table-view" id="list">
+		</ul>
+		<div class="mui-content-padded">
+			<p>*进入某医生组后，可以通过切换组
+				<span class="mui-icon mui-icon-trash"></span>
+				快速切换至其他组
+			</p>
+		</div>
+	</div>
+
+	<script src="../../assets/js/jquery.1.9.1.min.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.min.js?time=1519615230000"></script>
+	<script src="../publicController.js?time=1519615230000"></script>
+	<script>
+		mui.ready(function () {
+			getDoctorList();
+		});
+
+		function getDoctorList() {
+			mui.ajax(path + 'user/queryDoctorGroupListByAcctId.do?curYdataAccountId=' + sessionStorage.getItem('acctId') + '&openid=' + sessionStorage.getItem('openid'), {
+				data: {},
+				dataType: 'json', //服务器返回json格式数据
+				type: 'post', //HTTP请求类型
+				success: function (data) {
+					if (data.error) {
+						if (data.error == 'UnbindUser') {
+							unbindUser();
+						}
+						mui.alert(data.error, '提示');
+					} else {
+						var str = '';
+						var groupList = data.groupList;
+						if (groupList != '' && groupList != null && groupList != undefined) {
+							for (var i = 0; i < groupList.length; i++) {
+								var siteId = groupList[i].siteId,
+									groupName = groupList[i].siteName,
+									roleId = groupList[i].roleId;
+								
+								var roleName = '';
+								if (groupList[i].role != '' && groupList[i].role != null && groupList[i].role != undefined) {
+									roleName = groupList[i].role.roleName;
+								}
+								str += '<li class="mui-table-view-cell" siteId="' + siteId + '" roleId="' + roleId + '">';
+								str += groupName;
+								if (roleName != '' && roleName != null && roleName != undefined) {
+									str += '(' + roleName + ')';
+								}
+								str += '</li>';
+							}
+
+							mui('#list').on('tap', '.mui-table-view-cell', function (e) {
+								var siteId = $(this).attr('siteId'),
+									roleId = $(this).attr('roleId');
+									saveDefaultLogin(siteId,roleId)
+							});
+
+							$('#list').html(str);
+						}
+					}
+				},
+				error: function (xhr, type, errorThrown) {
+					//异常处理；
+					console.log(type);
+				}
+			});
+		}
+
+		function saveDefaultLogin(siteId, roleId) {
+			var defaultPatams = 'siteId=' + roleId + '&roleId=' + roleId + '&userId=' + sessionStorage.getItem('userId') +
+					'curYdataAccountId=' + sessionStorage.getItem('acctId') + '&openid=' + sessionStorage.getItem('openid');
+			mui.ajax(path + 'project/saveDefaultLogin.do?' + defaultPatams, {
+				data: {},
+				dataType: 'json',
+				type: 'post',
+				success: function(data) {
+					if (data.error) {
+						mui.alert(data.error, '提示');
+					} else {
+						mui.toast('切换医生组成功');
+						setTimeout(function(){
+							mui.openWindow({
+								url: 'patientList.html',
+								id: 'patientList.html'
+							});
+						}, 1000);
+					}
+				},
+				error: function(xhr, type, errorThrown) {
+					// 异常处理；
+					console.log(type);
+				},
+			});
+		}
+
+		mui('.mui-table-view').on('tap', '.mui-table-view-cell', function () {
+			mui.alert('切换成功');
+			/*mui.openWindow({
+				url:'patientList.html',
+				id:'patientList.html'
+			});*/
+		});
+	</script>
+
+</body>
+
+</html>

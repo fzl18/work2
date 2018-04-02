@@ -1,0 +1,100 @@
+<!--访视类型-->
+
+<!DOCTYPE html>
+<html class="ui-page-login" ng-app="myApp">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>新建访视</title>
+		<link href="../../assets/css/mui.min.css?time=1519615230000" rel="stylesheet" />
+		<link href="../../assets/css/mui.picker.min.css?time=1519615230000" rel="stylesheet" />
+		<link href="../../assets/css/mui.poppicker.css?time=1519615230000" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../assets/resource/css/common.css?time=1519615230000" />
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?time=1519615230000"> </script>
+
+		<script src="../../assets/resource/js/angluarjs.js?time=1519615230000"></script>
+		<script src="../../assets/resource/js/angular-animate.js?time=1519615230000"></script>
+		<script src="../../assets/resource/js/crfViewAngluar.js?time=1519615230000"></script>
+		<script src="../../assets/resource/js/publicAngular.js?time=1519615230000"></script>
+
+		<style>
+			.mui-input-group .mui-input-row:after {
+				left: 0px !important;
+			}
+			
+			#visitTime {
+				margin-bottom: 0px;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				height: 20px !important;
+				float: right;
+			}
+			.mui-col-sm-4{
+				color: #bababa;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="myController">
+		<div class="mui-content">
+			<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed" id="patientList">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+		                <div class="mui-row">
+					        <div class="mui-col-sm-8 mui-col-xs-8">
+					        	访视类型
+					        </div>
+					        <div class="mui-col-sm-4 mui-col-xs-4"  id="system-auto" style="text-align: right;padding-right: 15px;">
+					        	请选择
+							</div>
+							<input type="hidden" id="visitTypeIdValue" />
+					    </div>
+		            </a>
+				</li>
+
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+		                <div class="mui-row">
+					        <div class="mui-col-sm-8 mui-col-xs-8">
+					        	访视时间
+					        </div>
+					        <div class="btnClass mui-col-sm-4 mui-col-xs-4" id="visitTime" data-options='{"type":"date","beginYear":1900,"endYear":2050}' style="text-align: right;padding-right: 15px;">
+					        	请选择
+					        </div>
+					    </div>
+		            </a>
+				</li>
+			</ul>
+			<br />
+			<button type="button" class="mui-btn mui-btn-block btnSave">
+				新&nbsp;&nbsp;&nbsp;建
+			</button>
+		</div>
+
+		<script src="../../assets/js/jquery.1.9.1.min.js?time=1519615230000"></script>
+		<script src="../../assets/js/mui.min.js?time=1519615230000"></script>
+		<script src="../../assets/js/mui.picker.min.js?time=1519615230000"></script>
+		<script src="../../assets/js/mui.poppicker.js?time=1519615230000"></script>
+		<script src="../publicController.js?time=1519615230000"></script>
+		<script src="../../pdmsApp/patient/js/patientVisitAdd.js?time=1519615230000"></script>
+
+		<script type="text/javascript">
+			mui.init();
+			var btns = $('.btnClass');
+			btns.each(function(i, btn) {
+				btn.addEventListener('tap', function() {
+					var optionsJson = this.getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+					var picker = new mui.DtPicker(options);
+					picker.show(function(rs) {
+						btns.html(rs.text);
+						btns.css('color','#000000');
+					});
+				}, false);
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,58 @@
+.bar-vertical-track {
+    background-color: transparent;
+    width: 3px;
+    transition: opacity 1s;
+}
+
+.bar-horizontal-track {
+    background-color: transparent;
+    height: 3px;
+    transition: opacity 1s;
+}
+
+.bar-vertical-handler {
+    width: 2px;
+    right: 1px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 1s;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+// .FreeScrollbar-horizontal-handler {
+//     height: 8px;
+//     bottom: 1px;
+//     border-radius: 4px;
+//     background-color: rgba(0, 0, 0, 0.5);
+//     transition: opacity 0.3s;
+//     &:hover {
+//         background-color: rgba(0, 0, 0, 0.8);
+//     }
+// }
+
+
+.ant-upload-list-item:hover .anticon-cross{
+    background: rgb(248, 86, 11);
+    color: #fff;
+    display: block;
+    font-size: 16px!important;
+    font-weight: bold;
+    border-radius: 50%;
+    top:1px;
+    right: 1px;
+}
+
+.ant-upload-list{
+    display:flex;
+    flex-wrap: wrap;
+    position:relative;
+    left:-870%;
+    top:-30px;
+    width:1000%;
+    >.ant-upload-list-item-done{
+        width:65px;
+        margin-right: 10px;
+    }
+}

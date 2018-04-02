@@ -1,0 +1,95 @@
+.events {
+  line-height: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.events li {
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.events li span {
+  vertical-align: middle;
+}
+
+.events li span:first-child {
+  font-size: 9px;
+  margin-right: 4px;
+}
+
+.event-warning {
+  color: #fac450;
+}
+
+.event-normal {
+  color: #108ee9;
+}
+
+.event-error {
+  color: #f50;
+}
+
+.notes-month {
+  text-align: center;
+}
+.notes-month section {
+  font-size: 28px;
+}
+
+.ant-fullcalendar-header{
+  background:#5850c9;
+  text-align:center!important;
+  .ant-fullcalendar-today {
+    background:#5850c9;
+    box-shadow:0 0 0 1px #5850c9;
+    border-radius:50%;
+  }
+  .ant-radio-group.ant-radio-group-small{
+    display:none;
+  }
+}
+.ant-fullcalendar-today .ant-fullcalendar-value{
+  // background:#5850c9!important;
+  // box-shadow:0 0 0 1px #5850c9!important;
+  // border-radius:50%;
+  // width:30px;
+  // line-height:30px;
+  // height:30px;
+  // color:#fff;
+}
+.ant-fullcalendar-selected-day .ant-fullcalendar-value{
+  border-radius:50%;
+}
+
+.home-cal{
+  .ant-fullcalendar-cell{
+    position: relative;
+    .ant-fullcalendar-content{
+      position: inherit;
+      .calPoint{
+        position: absolute;
+        top:17px;
+        right: 14px;
+        color:#ECEC00;
+        //color: #8985EC
+        cursor: pointer
+      }
+    }
+    
+  }
+  .ant-fullcalendar-selected-day .ant-fullcalendar-value{
+    background-color: #c4c1f1;
+    box-shadow: 0 0 0 1px #c4c1f1;
+  }
+  .ant-fullcalendar-value{
+    width: 24px;
+    height: 24px;
+  }
+  .ant-fullcalendar-today .ant-fullcalendar-value{
+    box-shadow:  0 0 0 1px #c4c1f1;
+  }
+}

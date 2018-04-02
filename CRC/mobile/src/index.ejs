@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title></title>
+  <link rel="stylesheet" href="/antd-mobile.css" />
+  <link rel="stylesheet" href="/fonts/iconfont.css" />
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <script src="/js/jweixin-1.0.0.js"></script>
+  <script>
+    //解决移动端点击事件300ms延时
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+      }, false);
+    }
+    if(!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    }
+    window.configs = {
+      //ADMIN_URL: 'http://192.168.10.135:8383/portal',
+      ADMIN_URL: 'http://192.168.10.166:9095/',
+      //APPID: 'wx3d67296416e82f88',
+      JSP_URL: 'http://alan.natapp1.cc',
+      DEV: true,
+      SDKDEBUG: true,
+    };
+  </script>
+  
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>

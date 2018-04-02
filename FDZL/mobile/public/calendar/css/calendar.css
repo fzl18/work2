@@ -1,0 +1,406 @@
+
+
+.head {
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    color: #FFFFFF;
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #03c7ad;
+    z-index: 2;
+}
+
+.head h1 {
+	text-align: center;
+}
+
+.head .ic-back {
+	position: absolute;
+	left: 12px;
+	top: 10px;
+	display: inline-block;
+	width: 24px;
+	height: 22px;
+	background: url('../images/bg_back.png') no-repeat;
+	background-size: 24px 22px;
+}
+
+ul.week-f {
+	/* font-size: 14px; */
+	z-index: 2;
+	overflow: hidden;
+}
+
+ul.week-f li {
+	float: left;
+	box-sizing: border-box;
+	width: 14.28%;
+	text-align: center;
+}
+
+/* ul.week-f li.wk {
+	color: #ddd;
+} */
+
+
+/* 日历相关css */
+
+.cal-wrap {
+	background-color: #FFFFFF;
+	position: relative;
+	/* top: 69px; */
+	/*margin-bottom: 20px;*/
+	color: #585858;
+}
+
+.cal-wrap h2 {
+	text-align: center;
+	font-size: 16px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.cal-wrap ul.week {
+	height: 24px;
+	line-height: 24px;
+	background-color: #F7F7F7;
+	border-bottom: 1px solid #F5F0F0;
+	margin: 3px 0 5px;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.cal-wrap ul.week li {
+	float: left;
+	box-sizing: border-box;
+	width: 14.28%;
+	text-align: center;
+}
+
+.cal-wrap ul.week li.wk {
+	color: #FF902D;
+}
+
+.cal-wrap ul.day {
+    overflow: hidden;
+    background-image: url(../images/backimg.jpg);
+    background-size:100% 100%;
+}
+
+.cal-wrap ul.day li {
+	float: left;
+	box-sizing: border-box;
+	width: 14.28%;
+	text-align: center;
+	height: 45px;
+	line-height: 38px;
+	padding: 2px 0;
+	/* border-bottom: 1px solid #F1F1F1; */
+	position: relative;
+	z-index: 0;
+	webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+}
+
+.cal-wrap ul.day li i {
+	font-style: normal;
+	display: block;
+}
+
+
+/* 多行 */
+
+.cal-wrap ul.day li.dl {
+	padding-top: 2px;
+}
+
+
+/* 节日 */
+
+.cal-wrap ul.day li.jr {
+	/*color: #03C7AD;*/
+}
+
+
+/* 双休 */
+
+/* .cal-wrap ul.day li.wk {
+	color: #ddd;
+} */
+
+
+/* 不可点状态 */
+
+.cal-wrap ul.day li.iv {
+	color: #cfcfcf!important;
+}
+
+
+/* 当前选中态 */
+
+.cal-wrap ul.day li.cur {
+	/* background-color: #119ce4; */
+    color: #FFFFFF;
+}
+
+
+/*/////////////后来调*/
+
+.act {
+	margin-top: 85px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.act button {
+	margin-right: 30px;
+}
+
+.calendar-content .wrap {
+	padding-top: 170px;
+}
+
+.headImage {
+	color: white;
+}
+
+#day {
+	font-size: 100px;
+	margin-bottom: 50px;
+}
+
+#month {
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+#year {
+	margin-bottom: 20px;
+}
+
+.cal-wrap ul.day li:after {
+	position: absolute;
+	left: 50%;
+	margin-left: -3px;
+	bottom: 0;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	content: '';
+	top: 75%;
+    font-size: 15px;
+}
+.cal-wrap ul.day .section_class:before {
+	top: 4px;
+	left: 40%;
+	margin-left: -15px;
+	position: absolute;
+	z-index: -1;
+	content: "";
+	width: 40px;
+	height: 40px;
+	/* border-radius: 50%; */
+
+	-webkit-box-shadow: 0 0 0px #d2cccd;
+	box-shadow: 0 0 0px #d2cccd;
+	opacity: 0.4; 
+}
+.cal-wrap ul.day .section_class{
+
+  background: rgba(36, 127, 175, 0.3);
+}
+.cal-wrap ul.day .createBegin_class:before {
+	top: 4px;
+	left: 40%;
+	margin-left: -15px;
+	position: absolute;
+	z-index: -1;
+	content: "";
+	width: 40px;
+	height: 40px;
+    border-radius: 50% 0 0 50%;
+	-webkit-box-shadow: 0 0 0px #d2cccd;
+	box-shadow: 0 0 0px #d2cccd;
+    opacity: 0.4; 
+}
+.cal-wrap ul.day .createBegin_class{
+	background: rgba(36, 127, 175, 0.3);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+
+
+.cal-wrap ul.day .createEnd_class:before {
+	top: 4px;
+	left: 40%;
+	margin-left: -15px;
+	position: absolute;
+	z-index: -1;
+	content: "";
+	width: 40px;
+	height: 40px;
+    border-radius: 0 50% 50% 0;
+	-webkit-box-shadow: 0 0 0px #d2cccd;
+	box-shadow: 0 0 0px #d2cccd;
+	opacity: 0.4; 
+}
+.cal-wrap ul.day .createEnd_class{
+
+    background: rgba(36, 127, 175, 0.3);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+}
+
+
+.cal-wrap ul.day .cur:before {
+	top: 2px;
+	left: 40%;
+	margin-left: -16px;
+	position: absolute;
+	z-index: -1;
+	content: "";
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	    background: #1191d4;
+	-webkit-box-shadow: 0 0 0px #d2cccd;
+	box-shadow: 0 0 0px #d2cccd;
+	opacity: initial; 
+}
+
+
+
+/*下滑点*/
+
+.cal-wrap ul.day .cur:after {
+	/* background: white;  */
+}
+
+.crf1_class:after {
+	background: #f7b652;
+}
+
+
+/*.cal-wrap:nth-child(1) h2{margin-top: 10px;}*/
+
+.cal-wrap:nth-child(2) h2,
+.cal-wrap:nth-child(3) h2 {
+	margin-top: 0px;
+}
+
+.navBottom .iconfont {
+	left: 0px;
+}
+
+/* .cal-wrap:last-child {
+	padding-bottom: 50px;
+} */
+#prevMonth{
+    margin-right: 10px;
+}
+#nextMonth{
+    margin-left: 10px;
+}
+.cal-backcolor{
+    background-color: #ddeaf0;
+}
+.week-f{
+    background-color: #20bbe9;
+}
+.mui-row{
+    text-align: center;
+}
+.calean-css{
+    color: #65ce96;
+}
+.comfig-css{
+    color: #114db4
+}
+
+.mui-bar-tab {
+    bottom: 0;
+    display: table;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    table-layout: fixed;
+    border-top: 0;
+    border-bottom: 0;
+    -webkit-touch-callout: none;
+}
+.mui-bar {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 0;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,.85);
+    box-shadow: 0 0 1px rgba(0,0,0,.85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.mui-bar-tab .mui-tab-item {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #000000;
+    font-size: 16px;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #007aff;
+}
+.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label {
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.not-crf{
+    color: #898989;
+}
+.mui-table-view {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    background-color: #fff;
+}
+.mui-table-view-cell .mui-navigate-right>.mui-badge{
+    float: right;
+}
+.mui-badge {
+    font-size: 15px;
+    line-height: 1;
+    display: inline-block;
+    padding: 3px 6px;
+    color: #333;
+    border-radius: 100px;
+}
+
+.mui-bar-tab .mui-tab-item {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+}

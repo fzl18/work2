@@ -1,0 +1,41 @@
+.body{
+    height:100vh;background:#fff;overflow: hidden;
+    :global{
+        .am-whitespace{background:#f6f6f6}
+    }
+}
+.head{
+    padding:10px;
+    background: #fe8260;
+    :global{
+        .am-list-body::before{height:0!important}
+        .am-list-body::after{height:0!important}        
+        .am-list-item{background:#fe8260;}
+        .iconfont{font-size:30px;color:#fff}    
+        .am-list-item .am-list-line .am-list-content{color:#fff}
+        .am-list-item .am-list-thumb{margin-left:6%}
+    }
+}
+.status{
+    padding:20px;background:#fff;overflow-y:auto;height:85vh;
+    :global{
+        .am-steps-item-title{font-weight: inherit}
+        .am-steps-vertical .am-steps-item-content{min-height:80px;position: relative;}
+        .am-steps-vertical .am-steps-item-description{position: absolute;right: 0;top:0}
+        .am-steps-item-finish .am-steps-item-icon > .am-steps-icon{color:#fe8260}
+        .am-steps-item-process .am-steps-item-icon > .am-steps-icon{color:#CBCBCB}
+        .am-steps-item-wait .am-steps-item-icon > .am-steps-icon{color:#CBCBCB}
+        .am-steps-item-icon > .am-steps-icon > .iconfont{font-size:50px;position: relative;top:-11px;left:-13px;}
+        .am-steps-item-finish .am-steps-item-tail:after{background:#A9A9A9}
+        .am-steps-item-wait .am-steps-item-tail:after{background:#A9A9A9}
+        .am-steps-item-tail:after{height: 150%;top: -10px;}
+        .am-steps-item-process .am-steps-item-tail:after{background:#A9A9A9}
+        // .am-steps-item-custom.am-steps-item-process .am-steps-item-icon > .am-steps-icon{color:#A9A9A9}
+        .am-steps-item-process .am-steps-item-description{color:#CBCBCB}
+        .am-steps-item-process .am-steps-item-title{color:#A9A9A9}
+        .am-steps-item-finish .am-steps-item-title{color:#999;font-size:18px;}
+        .am-steps-item-finish .am-steps-item-description{color:#CBCBCB}
+        .am-steps-item-wait .am-steps-item-title{color:#A9A9A9;}
+        .am-steps-item-wait .am-steps-item-description{color:#CBCBCB}
+    }
+}

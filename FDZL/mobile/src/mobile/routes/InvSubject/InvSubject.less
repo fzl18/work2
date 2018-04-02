@@ -1,0 +1,118 @@
+.preparing{
+    color: #f8b451;
+}
+.entering{
+    color: #f49b9f;
+}
+.entered{
+    color: #029ee9;
+}
+.completed{
+    color: #84d64e;
+}
+
+.doc_flex{
+    text-align: center;
+    padding: 15px 0px 25px 0px;
+    .doctor_img{
+        width: 130px;
+        height: 90px;
+    }
+    .img_box{
+        width: 130px;
+        height: 90px;
+        margin: 5px auto 5px auto;
+    }
+
+    p{
+        line-height: 24px;
+    }
+}
+.subject_table{
+    margin-top:10px;
+    font-size: 12px;
+    th{
+        font-weight: normal;
+        text-align: left;
+      
+    }
+    th,td{
+        padding:5px 5px
+    }
+}
+.subject_table2{
+    margin-top:10px;
+    font-size: 12px;
+    margin-bottom:15px; 
+    th,td{
+        font-weight: normal;
+        text-align: center;
+      
+    }
+    th,td{
+        padding:5px 5px
+    }
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 9px solid #535355;
+    position: absolute;
+    top: 4px;
+    margin-left: 5px;
+}
+.dangerousHtml{
+
+    margin-bottom: 10px;
+    //line-height: 2
+   
+}
+.researchCenter{
+        border-top: 1px solid #e2e2e2;
+     padding-top: 5px;
+    word-break: break-all;
+    padding-bottom: 10px
+}
+.subjectTitle{
+word-break: break-all;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin-left: 10px;
+    font-family: Microsoft YaHei;
+    color: #333e4d;
+    font-size: 15px;
+}
+.height160{
+    :global{
+        .slider.am-carousel{
+            height: 160px !important;
+        } 
+    }
+}
+:global{
+    .am-list-header{
+    border-bottom: 1px solid #ddd;
+    }
+}
+// .search{
+// :global{
+// .am-search-input .am-search-synthetic-ph {
+//     text-align: left;
+//     margin-left: 15px
+// }
+// }
+// }
+//所有搜索文字，应该都是左对齐，采用了全局
+:global{
+.am-search-input .am-search-synthetic-ph {
+    text-align: left;
+    margin-left: 5px
+}
+}

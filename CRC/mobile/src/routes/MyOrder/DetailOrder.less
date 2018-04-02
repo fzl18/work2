@@ -1,0 +1,171 @@
+
+    .detailOrderTitle{
+        border-bottom: 1px solid #e5e5e5;
+        color: #535355 !important;
+        :global{
+            .my-list {
+                border-bottom: 1px solid #e5e5e5;
+            }
+            .am-list-extra{
+                color: #fd8261 !important;
+            }
+            .am-whitespace{
+                background-color: transparent;
+            }
+            .am-list-line::after{
+                height: 0px !important;
+            }
+            
+        }
+    }
+    .reset_alert{
+        padding: 58px 0;
+        display: block;
+    }
+    .reset_alert_button{
+        color: #fd8261 !important;
+    }
+
+    .detailName{
+        color: #535355 !important;
+        :global{
+            .am-list-line::after{
+                    height: 0px !important;
+                }
+        }
+    }
+    
+    .no_task{
+        position: fixed;
+        top:50%;
+        margin-top:-60px;
+        text-align: center;
+        width: 100%;
+        :global{
+            .icon-dingdan2{
+                font-size: 60px;
+                color:rgb(166,166,166)
+            }
+        }
+    }
+    
+
+.fee_span{
+    border: 1px solid #b5b5b5;
+    border-radius: 5px;
+    width: 60px;
+    display: block;
+    float: left;
+    margin-left: 13px;
+    margin-bottom: 10px;
+    height: 32px;
+    line-height: 32px;
+}
+.fee_spanchecked{
+    .fee_span;
+    border-color:#fb835e;
+    position: relative;
+    overflow: hidden;
+    :global{
+        .icon-jiaobiao{
+            position: absolute;
+            bottom: -11px;
+            right: -2px;
+        }
+    }
+}
+
+.editHour{
+    :global{
+        .am-input-control{
+            border-bottom: 1px solid #111;
+            input{
+                text-align: center;
+            }
+        }
+    }
+}
+// 无数据时下面有横线的问题
+.Chat{
+    :global{
+        .am-list-body::before{height:0!important}
+        .am-list-body::after{height:0!important} 
+    }
+}
+// 添加 无数据页面的展现样式
+.nodata{
+    vertical-align: middle;
+    padding-top:40%;
+    p{
+        font-size: 18px;
+        margin-top:30px;
+    }
+    
+    .nodataico
+    {
+        font-size: 80px !important;
+    }
+}
+
+.payTitle{
+    position: relative;
+    height: 34px;
+    line-height: 28px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    border-bottom:1px solid #e5e5e5;
+    .closeWrap{
+        width: 44px;
+        height: 34px;
+        position: absolute;
+    }
+    .close{
+         position: absolute;
+         width:1px;
+         height:18px;
+         background: #555;
+         -webkit-transform: rotate(45deg);
+         -moz-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+         -ms-transform: rotate(45deg);
+         transform: rotate(45deg);
+         display: inline-block;
+         left: 10px;
+         top: 5px;
+    }
+    .close:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width:1px;
+        height:18px;
+        background: #555;
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+}
+
+.payMoney{
+    color: #000;
+    padding: 20px 0px;
+    font-size: 26px;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.password{
+    border-bottom:1px solid #e5e5e5;
+    margin-bottom: 10px;
+    // :global{
+    //     .am-input-control{
+    //         input{
+    //             text-align: center;
+    //         }
+    //     }
+    // }
+}

@@ -1,0 +1,193 @@
+		.mui-row li {
+				list-style: none;
+			}
+			
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 1;
+			}
+			
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			
+			.mui-pull-top-tips .mui-pull-loading {
+				/*-webkit-backface-visibility: hidden;
+            -webkit-transition-duration: 400ms;
+            transition-duration: 400ms;*/
+				margin: 0;
+			}
+			
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+			
+			.search {
+				margin-bottom: 10px !important;
+			}
+			
+			.textCenter {
+				text-align: center;
+			}
+			
+			.textCenter:after {
+				right: inherit !important;
+				margin-left: 3px;
+				font-size: 24px;
+				color: #bbb !important;
+			}
+			
+			
+			.mui-popover {
+				width: auto;
+				border-radius: 1px
+			}
+			
+			.mui-popover .mui-col-xs-3 {
+				width: 31%;
+				border: 1px solid #ddd;
+				text-align: center;
+				margin: 10px 3px;
+				padding: 10px 0px;
+			}
+			/* .mui-popover .mui-col-xs-3:hover{}*/
+			
+			#no-border {
+				border: none;
+			}
+			
+			.mui-popover .mui-table-cell {
+				display: inline-block;
+			}
+			
+			.mui-search .mui-icon {
+				margin-right: 10px;
+				color: black;
+			}
+			
+			.touch-active {
+				background: #eaeaea;
+			}
+			
+			#status {
+				color: #4e4e4e;
+			}
+			
+			.triangle-up {
+				width: 10px;
+				height: 10px;
+				margin-right: 10px;
+				display: none;
+				position: relative;
+			}
+			
+			.triangle-down {
+				width: 22px;
+				margin-right: 10px;
+				position: relative;
+				top: 5px;
+			}
+			
+			.item label:first-child {
+				width: 30%;
+			}
+			
+			.item label:nth-child {
+				width: 30%;
+			}
+			
+			.item label:nth-child {
+				width: 40%;
+			}
+			
+			.color858585 {
+				color: #858585;
+			}
+			
+			.square {
+				width: 10px;
+			}
+
+
+.colorBlue{color: #52ACFF;}   
+
+
+#patientList .patientDetail .ui-flex-item { padding-right: 6px;}
+    
+    
+#patientList .patientDetail>div { 
+display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    }
+   

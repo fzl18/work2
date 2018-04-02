@@ -1,0 +1,298 @@
+<!--新增疼痛部位-->
+<!DOCTYPE html>
+<html class="ui-page-login" ng-app="myApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>基本信息</title>
+	<link href="../../assets/css/mui.min.css?time=1519615230000" rel="stylesheet" />
+	<link href="../../assets/css/mui.picker.min.css?time=1519615230000" rel="stylesheet" />
+	<link href="../../assets/css/mui.poppicker.css?time=1519615230000" rel="stylesheet" />
+	<link href="../../assets/resource/css/common-info.css?time=1519615230000" rel="stylesheet" />
+
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?time=1519615230000"> </script>
+	<script src="../../assets/js/mui.min.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.picker.min.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.poppicker.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.zoom.js?time=1519615230000"></script>
+	<script src="../../assets/js/mui.previewimage.js?time=1519615230000"></script>
+	
+
+	<script src="../../assets/resource/js/angluarjs.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/angular-animate.js?time=1519615230000"></script>
+	<script src="../../assets/js/jquery.1.9.1.min.js?time=1519615230000"></script>
+
+	<script src="../../assets/resource/js/crfViewAngluar.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/publicAngular.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/jquery-ui.min.js?time=1519615230000"></script>
+	<script src="../../assets/resource/js/jquery.fileupload.js?time=1519615230000"></script>
+
+	<style>
+		.btn-save {
+			margin-top: 30px;
+			border: 1px solid #67d3f0;
+			background-color: #67d3f0;
+			line-height: 0.8;
+			margin-left: 10px;
+			margin-right: 10px;
+			width: 95%;
+		}
+
+		.mui-input-group .mui-input-row:after {
+			left: 0px !important;
+		}
+
+		.textRight {
+			text-align: right;
+		}
+
+		.mui-icon-arrowright {
+			color: #67d3f0;
+		}
+
+		.mui-table-view-condensed input {
+			text-align: right !important;
+		}
+
+		.btnSave {
+			margin-top: 30px;
+		}
+
+		.mui-table-view-cell:after {
+			left: 0px;
+		}
+
+		.disableInfo {
+			background-color: white;
+			color: #ADABAB;
+		}
+
+		.mui-btn-block {
+			display: initial;
+		}
+
+		.mui-preview-image.mui-fullscreen {
+			position: fixed;
+			z-index: 2000;
+			background-color: #000;
+		}
+
+		.mui-preview-header,
+		.mui-preview-footer {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			z-index: 10;
+		}
+
+		.mui-preview-header {
+			height: 44px;
+			top: 0;
+		}
+
+		.mui-preview-footer {
+			height: 50px;
+			bottom: 0px;
+		}
+
+		.mui-preview-header .mui-preview-indicator {
+			display: block;
+			line-height: 25px;
+			color: #fff;
+			text-align: center;
+			margin: 15px auto 4;
+			width: 70px;
+			background-color: rgba(0, 0, 0, 0.4);
+			border-radius: 12px;
+			font-size: 16px;
+		}
+
+		.mui-preview-image {
+			display: none;
+			-webkit-animation-duration: 0.5s;
+			animation-duration: 0.5s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+		}
+
+		.mui-preview-image.mui-preview-in {
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+
+		.mui-preview-image.mui-preview-out {
+			background: none;
+			-webkit-animation-name: fadeOut;
+			animation-name: fadeOut;
+		}
+
+		.mui-preview-image.mui-preview-out .mui-preview-header,
+		.mui-preview-image.mui-preview-out .mui-preview-footer {
+			display: none;
+		}
+
+		.mui-zoom-scroller {
+			position: absolute;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			-webkit-backface-visibility: hidden;
+		}
+
+		.mui-zoom {
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+
+		.mui-slider .mui-slider-group .mui-slider-item img {
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+			width: 100%;
+		}
+
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+			display: inline-table;
+		}
+
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.mui-preview-loading {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+
+		.mui-preview-loading.mui-active {
+			display: block;
+		}
+
+		.mui-preview-loading .mui-spinner-white {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -25px;
+			margin-top: -25px;
+			height: 50px;
+			width: 50px;
+		}
+
+		.mui-preview-image img.mui-transitioning {
+			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+			transition: transform 0.5s ease, opacity 0.5s ease;
+		}
+
+		@-webkit-keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@-webkit-keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		p img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.mui-slider-img-content {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			right: 10px;
+			color: white;
+			text-align: center;
+			line-height: 21px
+		}
+		#patientList{
+			margin-top: 15px;
+		}
+	</style>
+</head>
+
+<body ng-controller="myController">
+	<div class="mui-content patient-group-detail info-content">
+		<div class="mui-input-group">
+			<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed" id="patientList">
+
+				<input type="hidden" class="btn btn-basic-lg btn-savecontinue" id="setDataValue" onclick="getPatientInfoValue(1);" />
+				<input type="hidden" id="crfItems" />
+				<input type="hidden" id="notInSameCrfCodes" />
+				<input type="hidden" id="notInSameModuleCodes" />
+
+				<input type="hidden" id="crfItems_two" />
+				<input type="hidden" id="completed" value="completed" />
+			</ul>
+		</div>
+
+		<button type="button" accesscontrolkey="modifyPatient_btn" class="access_control mui-btn mui-btn-block btnSave" id="saveData"
+		 onclick="modifyPatientData();">
+			保&nbsp;&nbsp;&nbsp;存
+		</button>
+		<!--<button type="button" class="mui-btn mui-btn-primary mui-btn-block btn-save" id="saveData" onclick="modifyPatientData();">保存</button>-->
+		<!--<button type="button" id="savePatientData" style="display: none;"></button>
+    <input type="hidden" id="crfItems" />-->
+	</div>
+	<script>
+		var backIndex = '';
+	</script>
+	<script src="../publicController.js?time=1519615230000"></script>
+	<script src="../../pdmsApp/patient/js/patientInfo.js?time=1519615230000"></script>
+	<script>
+		mui.previewImage();
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>病例详情</title>
+		<link href="../../assets/css/mui.min.css?time=1519615230000" rel="stylesheet" />
+		<link href="../../assets/css/mui.picker.min.css?time=1519615230000" rel="stylesheet" />
+		<link href="../../assets/css/icons-extra.css?time=1519615230000" rel="stylesheet" />
+		<link href="../../assets/font_eras/iconfont.css?time=1519615230000" rel="stylesheet" />
+		<link href="../../assets/resource/css/common.css?time=1519615230000" rel="stylesheet" />
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?time=1519615230000"> </script>
+		<script src="../../assets/resource/js/angluarjs.js?time=1519615230000"></script>
+		<script src="../../assets/resource/js/angular-animate.js?time=1519615230000"></script>
+		<script src="../../assets/resource/js/crfViewAngluar.js?time=1519615230000"></script>
+		<script src="../../assets/resource/js/publicAngular.js?time=1519615230000"></script>
+		<script src="../../assets/resource/js/publicAngularOnlyView.js?time=1519615230000"></script>
+		
+
+		<style type="text/css">
+			.mui-card {
+				margin: 0px;
+			}
+			
+			.mui-collapse {
+				padding-left: 10px;
+				padding-right: 0px;
+				padding-top: 5px;
+			}
+			
+			.mui-collapse>a {
+				padding-top: 0px;
+				padding-bottom: 0px !important;
+			}
+			
+			.mui-table-view-cell.mui-active {
+				background-color: white;
+			}
+			
+			.secLevelUL {
+				margin-right: 0px !important
+			}
+			
+			.paddingLeft25 {
+				padding-top: 10px;
+				padding-left: 0px !important;
+				border-top: 1px solid #ddd;
+				padding-right: 5px;
+			}
+			
+			.OA_task_1 .mui-navigate-right:after {
+				top: 30% !important;
+			}
+			
+			.textCenter {
+				margin-top: 130px;
+			}
+			
+			.square {
+				width: 50px;
+			}
+			
+			.lineHeight3 {
+			    line-height: 3;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    /* position: relative; */
+			    line-height: 48px;
+			    top: 5px;
+			    /* height: 48px; */
+			    padding-right: 30px;
+			}
+			
+			#visitDate {
+				padding-bottom: 0px !important;
+			}
+			
+			/*.dataEntry {
+				padding-right: 0px !important;
+			}*/
+			
+			img {
+				width: 18px;
+			}
+			
+			.info-title:first-child p {
+				margin-top: 0px !important;
+				color: #000000;
+				margin-bottom: 0px;
+			}
+			
+			.secLevelUL li {
+				padding-top: 0px;
+				padding-bottom: 8px;
+				padding-left: 15px !important;
+			}
+			.secLevelUL li:last-child{padding-bottom: 0px;}
+			
+			#visitData .mui-active>a{border:1px solid #ddd;padding-bottom: 10px !important;}
+			
+			.secLevelUL .mui-navigate-right>div:after {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0px;
+				height: 1px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+			.secLevelUL .mui-navigate-right .mui-row{padding: 15px 0px;}
+			.secLevelUL .mui-navigate-right>div:after>div{line-height: inherit !important;}
+   			.mui-input-group .mui-input-row:after{
+   				background-color: #FFFFFF;	
+			}
+			
+			.radio-awals1{
+			    width: 50%;
+			    float: left;
+			    height: 40px;
+			}
+   			.radio-awals2{
+			    width: 50%;
+			    float: right;
+			    height: 40px;
+			    margin-top: -50px;
+   			}
+   			.btn-choicetxt{
+			    margin-top: 15px;
+   			}
+   			.mui-btn-awals{
+			    width: 80px;
+   	 			padding: 3px;
+   				color: #fff;
+			    border: 1px solid #67D3F0;
+			    background-color: #67D3F0;
+   			}
+   			.mui-table-view-cell>.mui-badge{
+			    top: 25%;
+    			right: 36px;
+   			}
+   			.btn-choicetxt{
+			    font-weight: normal;
+    			color: #000000;
+   			}
+   			.plusImgClass{
+				margin-right: 10px;
+			    position: absolute;
+			    margin-top: 8px;
+			    margin-left: 8px;
+			}
+			.plusIcon {
+			    position: fixed;
+			    top: 80%;
+			    z-index: 999;
+			    width: 50px;
+			    height: 50px;
+			    left: 85%;
+			    border-radius: 50% 50% 50% 50%;
+				background-color: #ffffff;
+				border: 1px solid #c9c9c9;
+			}
+		</style>
+
+	</head>
+
+	<body ng-controller="myController">
+		<div class="mui-content">
+			<div>
+				<!--MUI默认是position是absolute-->
+				<div class="mui-scroll">
+					<ul class="mui-table-view table-view-title" id="visitDate" style="padding-bottom: 10px;padding-top: 10px;">
+						<div class="mui-table-cell  mui-col-xs-1 middleAlign">
+							<img class="square" src="../../assets/image/user.png" alt="" />
+						</div>
+						<div class="mui-table-cell  mui-col-xs-5" id="baseInfo_all">
+							<!--<div>LDH</div>
+							<div class="mui-row">
+								<p class="mui-pull-left">
+									病例编号
+									<span>DX0012</span>
+								</p>
+							</div>-->
+						</div>
+						<div class="middleAlign mui-table-cell mui-col-xs-1 mui-text-right blueColor ">
+							<img class="right" src="../../assets/image/right.png" alt="" />
+						</div>
+
+						<input type="hidden" class="btn btn-basic-lg btn-savecontinue" id="setDataValue" onclick="getPatientInfoValue(1);" />
+						<input type="hidden" id="crfItems" />
+						<input type="hidden" id="notInSameCrfCodes" />
+						<input type="hidden" id="notInSameModuleCodes" />
+					</ul>
+						
+					<din id="visitData"></din>
+
+				</div>
+			</div>
+			
+			<div class="plusIcon access_control" id="viewAdd" accesscontrolkey="addVisit" style="display:none;">
+				<img style="width: 33px;" class="plusImgClass" src="../../assets/image/plus.png" alt="" />
+			</div>
+
+			<nav class="mui-bar mui-bar-tab" style="background-color:#FFFFFF;display:none;" id="navId">
+			</nav>
+
+		</div>
+		
+		<script>
+			var backIndex = '';
+		</script>
+
+		<script src="../../assets/js/mui.min.js?time=1519615230000"></script>
+		<script src="../../assets/js/mui.picker.min.js?time=1519615230000"></script>
+		<script src="../../assets/js/jquery.1.9.1.min.js?time=1519615230000"></script>
+		<script src="../publicController.js?time=1519615230000"></script>
+		<script src="js/patientDetail.js?time=1519615230000"></script>
+
+		<script>
+
+			//基本信息
+			mui('.mui-content').on('tap', '#visitDate', function(e) {
+				mui.openWindow({
+					url: 'patientInfo.html',
+					id: 'patientInfo.html'
+				});
+			});
+			//新建访视
+			mui('.mui-content').on('tap', '#viewAdd', function(e) {
+				mui.openWindow({
+					url: 'patientVisitAdd.html',
+					id: 'patientVisitAdd.html'
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

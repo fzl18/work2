@@ -1,0 +1,58 @@
+.line{
+    border-left: 1px solid #ddd;
+    padding-left:40px!important;
+}
+.orderlist dl{
+    overflow: hidden;
+    dt{
+        text-align:right;width:30%;float:left;line-height:24px
+    }
+    dd{
+        float:left;
+        width:70%;
+        padding-left:10px;
+        line-height:24px
+    }
+}
+
+.orderstep{
+    position: relative;
+    .ant-steps .ant-steps-item.ant-steps-status-finish .ant-steps-head-inner>.ant-steps-icon .ant-steps-icon-dot{
+        background:#FE8362;width: 15px;height: 15px;border-radius:50%;top:-5px;
+    }
+    .ant-steps .ant-steps-item.ant-steps-status-process .ant-steps-head-inner>.ant-steps-icon .ant-steps-icon-dot{
+        background:#FE8362;width: 15px;height: 15px;border-radius:50%;top:-5px;
+    }
+    .ant-steps .ant-steps-item.ant-steps-status-process .ant-steps-head-inner{
+        background:#FE8362
+    }
+    .ant-steps .ant-steps-item.ant-steps-status-finish .ant-steps-tail>i:after{
+        background:#E9E9E9
+    }
+    .ant-steps .ant-steps-item.ant-steps-status-wait .ant-steps-head-inner>.ant-steps-icon .ant-steps-icon-dot{
+        background:#fff;width: 15px;height: 15px;border-radius:50%;top:-5px;border:2px solid #9B9B9B
+    }
+    .NO1{position: relative;z-index:99}
+    .NO2{
+        .ant-steps-dot.ant-steps-vertical .ant-steps-tail{left:-113px;display:none;}
+        .orderstep .ant-steps .ant-steps-item.ant-steps-status-wait .ant-steps-head-inner > .ant-steps-icon .ant-steps-icon-dot{top:4px;}
+        .ant-steps-main{margin-top:0}
+        .ant-steps-status-wait{margin-bottom:10px;}
+        position: relative;top: -43px;background:#fff;z-index:90;
+    }
+    .hline{
+        position:relative;left:0;
+        .kkk::before{
+            content: '';position: absolute;width:100%;height:3px;background: #E9E9E9;top:-30px;left:5px;
+        }
+        .kkk::after{
+            content: '';position: absolute;width:100%;height:3px;background: #E9E9E9;bottom:-30px;left:5px;
+        }
+    }
+    .hline::before{
+        content: '';position: absolute;width:60px;height:3px;background: #E9E9E9;top:50%;left:-55px;z-index:80;
+    }
+    .hline::after{
+        content: '';position: absolute;width:3px;height:60px;background: #E9E9E9;top:-30px;left:5px;z-index:80;
+    }
+}

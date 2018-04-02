@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>日历</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link href="../crf/assets/css/mui.min.css?time=1519615230000" rel="stylesheet" />
+	<link href="../crf/assets/css/mui.picker.min.css?time=1519615230000" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="./css/reset.css?time=1519615230000" />
+	<link rel="stylesheet" type="text/css" href="./css/calendar.css?time=1519615230000" />
+	<link rel="stylesheet" type="text/css" href="../fonts/iconfont.css?time=1519615230000" />
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?time=1519615230000"> </script>
+	<style>
+		body {
+			/* background-color: #F3F3F3; */
+			background-color: #ddeaf0;
+			/* background-image: url(images/bodyimg.jpg);
+			background-size: 100% 100%;
+			background-repeat: no-repeat; */
+		}
+
+		.mui-content {
+			background-color: initial;
+		}
+
+		.mui-content-padded {
+			margin: initial;
+		}
+
+		#doctorId,
+		#patientId {
+			background-image: url(images/bodyimg.jpg);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			min-height: 250px;
+			margin-top: 0px !important;
+		}
+
+
+		.mui-table-view-cell>a:not(.mui-btn) {
+			white-space: initial;
+		}
+
+		.switchIcon {
+			position: fixed;
+			top: 70%;
+			z-index: 999;
+			width: 50px;
+			height: 50px;
+			left: 85%;
+			border-radius: 50% 50% 50% 50%;
+			background-color: #ffffff;
+			border: 1px solid #c9c9c9;
+		}
+
+		.switchImgClass {
+			margin-right: 10px;
+			position: absolute;
+			margin-top: 8px;
+			margin-left: 10px;
+		}
+
+		.mui-scroll,
+		.mui-scroll-wrapper {
+			position: initial;
+		}
+
+		.mui-col-sm-3 {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="mui-content" style="margin-bottom: 70px;">
+		<div class="wrap">
+			<div id="calendar"></div>
+		</div>
+
+		<div class="mui-content-padded" id="patientId" style="display:none;">
+			<div class="mui-row">
+				<div class="mui-col-sm-12 mui-col-xs-12 calean-css" style="padding-top: 45px;">
+					<i class="icon iconfont icon-dengpao" style="font-size: 30px;"></i>
+				</div>
+			</div>
+			<div class="mui-row">
+				<div class="mui-col-sm-12 mui-col-xs-12 calean-css" id="patientTitle" style="margin-top: 10px;">
+					<!-- 2018-12-13,祝您安康</br>
+						按照医嘱，本日您可以提交随访资料 -->
+				</div>
+			</div>
+			<div class="mui-row">
+				<div class="mui-col-sm-12 mui-col-xs-12 comfig-css" id="patientVisit" style="display:none;">
+					马上去提交
+				</div>
+			</div>
+		</div>
+
+		<div class="mui-content-padded" id="doctorId" style="display:none;">
+			<div class="mui-row">
+				<div class="mui-col-sm-12 mui-col-xs-12 calean-css" style="margin-top: 15px;font-size: 19px;">
+					督办名单
+				</div>
+			</div>
+			<div class="mui-row not-crf" style="margin-top:20px;" id="noDate" style="display:none;">
+				<div class="mui-col-sm-12 mui-col-xs-12">
+					本日无记录！
+				</div>
+			</div>
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="display:none;">
+				<div class="mui-scroll">
+					<ul class="mui-table-view" id="getDateId" style="margin-top: 15px;">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="switchIcon switchClass" id="showUserPicker" style="display:none;">
+		<img class="switchImgClass" src="../crf/assets/image/switch.png" alt="">
+	</div>
+
+	<nav class="mui-bar mui-bar-tab" id="navId">
+
+	</nav>
+
+	<script src="../crf/assets/js/mui.min.js?time=1519615230000"></script>
+	<script src="../crf/assets/js/mui.picker.min.js?time=1519615230000"></script>
+	<script src="./js/date/globalization/zh-CN.js?time=1519615230000"></script>
+	<script src="./js/date/core.js?time=1519615230000"></script>
+	<script src="./js/jqmobi.js?time=1519615230000"></script>
+	<script src="calendar.js?time=1519615230000"></script>
+	<script src="calendarController.js?time=1519615230000"></script>
+	<script src="../crf/pdmsApp/publicController.js?time=1519615230000"></script>
+	<script>
+		var visitToDoList = '';
+	</script>
+</body>
+
+</html>

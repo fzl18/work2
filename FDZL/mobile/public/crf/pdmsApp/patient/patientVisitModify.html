@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="ui-page-login" ng-app="myApp">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>修改访视</title>
+		<link href="../../assets/css/mui.min.css?time=1519615230000" rel="stylesheet" />
+		<link href="../../assets/css/mui.picker.min.css?time=1519615230000" rel="stylesheet" />
+		<link href="../../assets/css/mui.poppicker.css?time=1519615230000" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../assets/resource/css/common.css?time=1519615230000" />
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?time=1519615230000"> </script>
+
+		<!--<script src="../../assets/resource/js/angluarjs.js"></script>
+		<script src="../../assets/resource/js/angular-animate.js"></script>
+		<script src="../../assets/resource/js/crfViewAngluar.js"></script>
+		<script src="../../assets/resource/js/publicAngular.js"></script>-->
+
+		<style>
+			.mui-row li {
+				list-style: none;
+			}
+			
+			.btn-save {
+				margin-top: 30px;
+				border: 1px solid #67d3f0;
+				background-color: #67d3f0;
+				line-height: 0.8;
+				margin-left: 10px;
+				margin-right: 10px;
+				width: 95%;
+			}
+			.mui-col-sm-4{
+				color: #bababa;
+			}
+			
+			.mui-input-group .mui-input-row:after {
+				left: 0px !important;
+			}
+			
+			#visitTime {
+				margin-bottom: 0px;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				height: 20px !important;
+				float: right;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="myController">
+		<!--<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">新建访视</h1>
+			<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>
+				返回
+			</button>
+		</header>-->
+		<div class="mui-content">
+			<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed" id="patientList">
+				<li class="mui-table-view-cell">
+					<a class="">
+		                <div class="mui-row">
+					        <div class="mui-col-sm-8 mui-col-xs-8">
+					        	访视类型
+					        </div>
+					        <div class="mui-col-sm-4 mui-col-xs-4"  id="system-auto" style="text-align: right;padding-right: 15px;">
+					        	<input type="hidden" id="visitTypeIdValue" />
+					        </div>
+					    </div>
+		            </a>
+				</li>
+
+				<li class="mui-table-view-cell">
+					<a class="" id="removeNavigate">
+		                <div class="mui-row">
+					        <div class="mui-col-sm-8 mui-col-xs-8">
+					        	访视时间
+					        </div>
+					        <div class="mui-col-sm-4 mui-col-xs-4" id="visitTime" data-options='{"type":"date","beginYear":1900,"endYear":2050}' style="text-align: right;padding-right: 15px;">
+					        </div>
+					    </div>
+		            </a>
+				</li>
+			</ul>
+			</br>
+			<button type="button" class="mui-btn mui-btn-block btnSave">
+				保&nbsp;&nbsp;&nbsp;存
+			</button>
+		</div>
+
+		<script src="../../assets/js/jquery.1.9.1.min.js?time=1519615230000"></script>
+		<script src="../../assets/js/mui.min.js?time=1519615230000"></script>
+		<script src="../../assets/js/mui.picker.min.js?time=1519615230000"></script>
+		<script src="../../assets/js/mui.poppicker.js?time=1519615230000"></script>
+
+		<script src="../../pdmsApp/patient/js/patientVisitModify.js?time=1519615230000"></script>
+
+		<script src="../publicController.js?time=1519615230000"></script>
+
+		<script type="text/javascript">
+			mui.init();
+		</script>
+
+	</body>
+
+</html>

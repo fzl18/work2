@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="image/x-icon" href="./images/fdzl.ico" rel="shortcut icon">
+    <title>CRC随心呼后台管理系统</title>
+    <script src="/lib/ueditor/ueditor.parse.js"></script>
+    <script>
+        window.configs = {
+            ADMIN_URL: 'http://127.0.0.1',
+            UEDITOR_URL: '',
+            LOGOUT_URL: './#/login',
+			
+        };
+        uParse('.content',{
+        'liiconpath':'/#/lib/ueditor/themes/ueditor-list/'    //使用 '/' 开头的绝对路径
+        })
+    </script>
+</head>
+<body>
+    <!--[if lte IE 9]>
+    <div class="ie-support" style="width:100%;height:50px;background-color: #dc6356;color: #fff;text-align: center;line-height: 50px;font-size: 18px;">不支持IE9及IE9以下版本的IE浏览器，为得到更好的体验，建议使用Chrome浏览器</div>
+    <![endif]-->
+    <div id="contentApp"></div>
+</body>
+</html>

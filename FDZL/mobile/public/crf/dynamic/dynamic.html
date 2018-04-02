@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>动态</title>
+		<link href="../assets/css/mui.min.css?time=1519615230000" rel="stylesheet" />
+		<link href="../assets/css/mui.picker.min.css?time=1519615230000" rel="stylesheet" />
+		<link href="../assets/css/icons-extra.css?time=1519615230000" rel="stylesheet" />
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?time=1519615230000"> </script>
+		
+		<style>
+			.timeClass{
+				font-size: 12px;
+			}
+			.updateClass{
+				color: #50f3c6;
+			}
+			.switchIcon {
+			    position: fixed;
+			    top: 80%;
+			    z-index: 999;
+			    width: 50px;
+			    height: 50px;
+			    left: 80%;
+			    border-radius: 50% 50% 50% 50%;
+			    background-color: #ffffff;
+				border: 1px solid #c9c9c9;
+			}
+			.switchImgClass{
+				margin-right: 10px;
+			    position: absolute;
+			    margin-top: 8px;
+			    margin-left: 10px;
+			}
+		</style>
+	</head>
+		
+		
+	<body>
+		<div class="mui-content">
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="margin-top: 15px;margin-bottom: 70px;">
+				<div class="mui-scroll scrollPatient">
+					<ul class="mui-table-view" id="list">
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="switchIcon switchClass" id="showUserPicker" style="display:none;">
+			<img class="switchImgClass" src="../assets/image/switch.png" alt="">
+		</div>
+		
+		<nav class="mui-bar mui-bar-tab" style="background-color: #FFFFFF;">
+			<a class="mui-tab-item menu-item calendar" target="home ">
+				<span class="mui-tab-label">日历</span>
+			</a>
+			<a class="mui-tab-item menu-item mui-active dynamic" target="patientManager">
+				<span class="mui-tab-label ">动态</span>
+			</a>
+			<a class="mui-tab-item menu-item patient" target="search">
+				<span class="mui-tab-label">病例记录</span>
+			</a>
+		</nav>
+		
+		<script src="../assets/js/jquery.1.9.1.min.js?time=1519615230000"></script>
+		<script src="../assets/js/mui.min.js?time=1519615230000"></script>
+		<script src="../assets/js/mui.picker.min.js?time=1519615230000"></script>
+		<script src="../assets/js/mui.pullToRefresh.js?time=1519615230000"></script>
+		<script src="../assets/js/mui.pullToRefresh.material.js?time=1519615230000"></script>
+		<script src="../pdmsApp/publicController.js?time=1519615230000"></script>
+		<script src="dynamic.js?time=1519615230000"></script>
+		
+	</body>
+</html>

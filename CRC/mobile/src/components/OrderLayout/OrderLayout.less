@@ -1,0 +1,72 @@
+.header{
+    position: relative;
+    background-color: #fe8260;
+    height: 44px;
+    top: 0px;
+    padding: 0px 40px;
+    text-align: center;
+    z-index: 10;    
+    :global{
+        .icon{
+            line-height: 48px;
+            font-size: 22px;
+            color: #fff;
+        }
+        .am-flexbox-item{
+            text-align: center;
+            line-height: 44px;
+            color: #000;
+        }
+    }
+}
+.drawer_class{
+    :global{
+        .am-drawer-sidebar{
+            background-color: #f6f6f6;
+        }
+    }
+}
+.header{
+    .tabSelected{
+        color: #fff;
+        border-bottom: #fff solid 3px;
+        padding: 4px 0px;
+    }
+    .notice;
+}
+
+//  zlee 添加修改的样式部分
+ // 导航条上的notice 信息提示
+ @dotsize : 5px;
+.notice{
+    .dotxinxi{
+        width: @dotsize; height: @dotsize;
+        position: absolute;
+        top:12px;
+        right: -2px;
+        background-color:#fef000;
+        border-radius: @dotsize;
+        display: block;
+        z-index: 999;
+    }
+}
+
+// OrderLayout
+.orderLayout{
+    width: 270px;
+    img{ width:80px; height: 80px; border-radius: 5px;}
+    .userInfoItem{
+        background: linear-gradient(to right, #f87947, #ebdc58);
+        height: 120px;
+        border: 0;
+    }
+    .namestyle{
+        color:#fff;
+        font-size: 20px;
+    }
+    .itemmenu{
+        margin-left: 15px;
+        font-size: 18px;
+        letter-spacing: .5px;
+    }
+}

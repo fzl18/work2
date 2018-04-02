@@ -1,0 +1,106 @@
+.header{
+    position: relative;
+    background-color: #fe8260;
+    height: 44px;
+    top: 0px;
+    padding: 0px 40px;
+    text-align: center;
+    z-index: 10;    
+    :global{
+        .icon{
+            line-height: 44px;
+            font-size: 22px;
+            color: #fff;
+        }
+        .am-flexbox-item{
+            text-align: center;
+            line-height: 44px;
+            color: #fff;
+        }
+    }
+}
+
+.drawer_class{
+    :global{
+        .am-drawer-sidebar{
+            background-color: #f6f6f6;
+            z-index: 999;
+        }
+        .am-list {
+            padding: 0;
+        }
+    }
+}
+
+.my-drawer{
+    .am-list {
+        width: 300px;
+        padding: 0;
+    }
+}
+
+.flex_container {
+    margin: 0 15px;
+    .filter_span{
+        margin: 5px 9px 3px 0;
+        height: 44px;
+        overflow: hidden;
+    }
+    .filter_spanchecked{
+        .filter_span;
+        background-color: #fdebe7;
+        :global{
+            .inline{
+                background-color: #fdebe7;
+            }
+        }
+    }
+    :global{
+        .inline {
+            width: 76px!important;
+            background-color: #ebebef;
+            text-align: center;
+            height: 44px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            word-break: break-all;
+            padding: 0px 2px;
+            line-height: 15px;
+        }
+        .small {
+            height: 20px!important;
+            line-height: 20px!important;
+        }
+        .sub-title {
+            color: #fe8260;
+            font-size: 14px;
+            padding: 10px 0 0px 0;
+        }
+    }
+}
+.buttombar{
+    //position:webkit-sticky;
+    //position: sticky;
+    position: absolute;
+    bottom: 0px;
+    right:0px;
+    height: 44px;
+    width: 100%;
+    z-index: 10;
+}
+.bottombutton{
+    width: 50%;
+    height: 44px;
+    float: left;
+    text-align: center;
+    line-height: 44px;
+    &.gray{
+        background-color:#f2f2f2;
+        color: #535353;
+    }
+    &.orange{
+        background-color: #fe8260;
+        color: #fff;
+    }
+}

@@ -1,0 +1,142 @@
+.head{
+height: 150px;
+background-color: white;
+}
+.AvailableBalance{
+    width: 49.5%;
+    float: left;
+    text-align: center;
+    height: 120px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    line-height: 150px;
+    border-right: 1px solid #bdaeae;
+}
+.AvailableBalance2{
+    position: absolute;
+    top: -25px;
+    left: 3%;
+        font-size: 28px;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 130px;
+}
+
+.FrozenFunds{
+    width: 49.5%;
+    float: left;
+    text-align: center;
+    height: 120px;
+    margin-top: 15px;
+     margin-bottom: 15px;
+    background-color: white;
+    line-height: 150px;
+
+}
+.FrozenFunds2{
+    position: absolute;
+    right: 10%;
+    top: -25px;
+    font-size: 28px;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    width: 130px;
+       }
+.font{
+    font-size: 15px;
+    font-weight: 600;
+}
+:global{
+    .am-modal-button-group-v .am-modal-button{
+    color: #f5a282 !important;
+    border-top: 0.1px solid #e9f1ee !important;
+    font-size: 16px;
+    }
+    .am-modal-header{
+        padding: 0px;
+    }
+    .am-modal-alert-content{
+        font-size: 16px;
+    }
+    .am-modal-title{
+        padding-bottom: 5px;
+        color: #333e4d;
+    }
+}  
+
+// 我的代金券
+
+@overdue :#b5b5b5 ; // 过期颜色
+@fontaize:65px;
+
+.myVouchers {
+    padding: 5px 0;
+    .vouchers_list{
+       margin-top: 23px;
+       .reset_title_icon_size{
+            font-size:@fontaize;
+        }
+        .reset_overdue_icon_size{
+            font-size:@fontaize;
+            display: none;
+        }
+        .fortime{
+            font-size: 20px;
+            color:#f90936;
+        }
+    }
+    .vouchers_list_overdue{
+        margin-top: 23px;
+        color:#b5b5b5 !important;
+        :global{
+            .am-list-content{color:@overdue !important;} 
+            .am-list-extra{color:@overdue !important;}
+            .am-list-brief{color:@overdue !important;}
+        }
+        .fortime{
+            font-size: 23px;
+            color:@overdue;
+        }
+        .reset_title_icon_size{
+            font-size:@fontaize;
+            color:@overdue;
+        }
+        .reset_overdue_icon_size{
+            font-size:@fontaize;
+        }
+        .reset_icon_size_overdue{
+            font-size:@fontaize;
+            color:@overdue;
+        }
+    }
+   
+}
+
+.myVouchers ,.myVouchersOverdue{
+    
+    :global{
+        .am-list-content{ font-size: 14px !important;} 
+    }
+    .nodata{
+        vertical-align: middle;
+        padding-top:40%;
+        text-align: center;
+        color:@overdue;
+        p{
+            font-size: 18px;
+            margin-top:30px;
+        }
+        
+        .nodataico
+        {
+            font-size: 80px !important;
+            color:@overdue;
+        }
+    }
+}

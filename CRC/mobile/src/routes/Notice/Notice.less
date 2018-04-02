@@ -1,0 +1,82 @@
+
+.InfoTap{
+    //margin-top: 30px;
+    //position: relative;
+    position: absolute;
+    width: 100%;
+    height:100vh;
+    max-width: 800px;
+    // background:#F7F5F6;
+    :global{
+        .am-tabs-default-bar-tab-active{
+            color: #fff;
+            background-color: #FE8260;
+        }
+        .am-tabs-default-bar-underline{
+            border: 1px #fff solid;
+            width:20%!important;
+            bottom:15%;
+            margin: 0 15%;
+
+        }
+        .am-list-extra{font-size:13px!important;white-space:inherit!important}
+        .am-tabs-default-bar.am-tabs-default-bar-animated.am-tabs-default-bar-top{
+            background-color: #FE8260 !important;
+        }
+        .am-tabs-default-bar-top{
+            color: #929090;
+        }
+        .am-badge-dot{background: #FBF200!important}
+        .icon.icon-dingdan1{color:#29C8B6!important;font-size:30px;}
+        .icon.icon-zuanshi2{color:#1698E1!important;font-size:30px;}
+        // .am-list-item{min-height:78px;}
+        .am-swipe::after {    content: '';
+            position: absolute;
+            background-color: #ddd;
+            display: block;
+            z-index: 1;
+            top: auto;
+            right: auto;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1PX;
+            -webkit-transform-origin: 50% 100%;
+            -ms-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+            -webkit-transform: scaleY(0.5);
+            -ms-transform: scaleY(0.5);
+            transform: scaleY(0.5);}
+        .am-list-line::after{height:0;}
+    }
+    .line{background: #fff}
+    .cardList{text-align:center}
+    .info{
+        :global{
+            .am-list-content{text-align:center}
+            .am-list-brief{text-align:left;}
+            p{line-height:40px;}
+            .am-list-body::after{height:0}
+            .am-list-body div:not(:last-child) .am-list-line::after{width:95%}
+        }        
+    }
+    .time{text-align:center!important;display:block}    
+}
+.Badge{
+    :global{
+    .am-badge-dot{
+      background: #fb2e00 !important
+    }
+    }
+}
+.BadgeWaring{
+     :global{
+    .am-badge-dot{
+      background: #fb2e00 !important
+    }
+    .icon.iconfont.icon-jinggao2{
+        font-size: 23px;
+        color:rgb(249,184,92);
+    }
+    }
+}

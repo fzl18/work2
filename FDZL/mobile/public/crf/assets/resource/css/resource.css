@@ -1,0 +1,102 @@
+.ui-flex {
+	display: -webkit-box !important;
+	display: -webkit-flex !important;
+	display: flex !important;
+}
+
+.ui-flex-item {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+.align-center {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+
+/*添加*/
+
+.plus {
+	position: fixed;
+	top: 80%;
+	z-index: 999;
+	width: 50px;
+	height: 50px;
+	left: 85%;
+}
+
+.plus img {
+	width: 40px;
+}
+
+
+/*搜索保存按钮*/
+
+.btn-save-box {
+	padding-right: 0px;
+	padding-left: 0px;
+	width: 95%;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 30px;
+}
+
+.btn-save-box .btn-submit {
+	top: 0px;
+	line-height: 30px;
+}
+
+
+/*保存*/
+
+.btn-submit {
+	background-color: #67D3F0;
+	color: white;
+	border: 1px solid #67D3F0;
+}
+
+.btn-submit .icon-baocun {
+	margin-right: 10px;
+}
+
+
+/*粉色图标*/
+
+.icon-pink {
+	color: #FCA9C8;
+}
+
+
+/*绿色图标*/
+
+.icon-green {
+	color: #85D74F;
+}
+
+
+/*文件夹*/
+
+.icon-wenjianjia {
+	color: #f4ea2a;
+	font-size: 20px;
+}
+
+
+/*折角*/
+
+.icon-zhejiao {
+	color: #d6d6d6;
+}
+
+/*搜索条件颜色*/
+.equal-item{color:#85dbf2;}/*等于*/
+.more-item,.less-item{color: #90efd1;}/*小于、大于*/
+.less-or-equal-item,.more-or-equal-item{color:#cef18b;}/*小于等于、大于等于*/
+.and-item{color: #ffb77b;}/*和关系*/
+.or-item{color:#f48e80;}/*与关系*/
+.contains-item{color:#f751f7;}
+.add-item{color: #7ddded;}
+

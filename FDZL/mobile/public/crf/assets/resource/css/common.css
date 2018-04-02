@@ -1,0 +1,287 @@
+.mui-bar{background-color: #ddeaf0;}
+.mui-bar .mui-btn-link{color:white;}
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #1a86e9 !important;
+}
+/*.navBottom .mui-bar-tab .mui-tab-item.mui-active{color: #1a86e9; !important}*/
+.mui-title{color:white;}
+.mui-push-right:after{color: blue !important;}
+.table-view-title {border: 1px solid #ddd;margin: 10px; box-shadow: 1px 1px 1px rgba(0,0,0,.2);}
+.marginBotton10{margin-bottom: 10px;}
+.new-icon{border-radius: 25px !important;border: 1px solid #afafaf;}
+.blueColor{color:#0083e5;}
+.finishColor{color:#85d74f;}
+.submitColor{color:#bff2f9}
+.search{background: white !important;border-radius: 2px !important;}
+.mui-navigate-right:after, .mui-push-left:after, .mui-push-right:after{color: #2B2B2B !important;}
+.plus{ position:fixed;top: 80%;z-index: 999;width: 50px;height: 50px;left: 85%;}  
+.plus img{width: 40px;}
+.middleAlign {vertical-align: middle;}
+.right{width: 16px;}
+.color67d3f0{color:#67d3f0;}
+.colorfca9c8{color: #BFBFBF;}
+.colorF8B551{color: #F8B551;}
+.color67d3f0Back{background-color:#67d3f0;color: #ffffff;text-align: center;}
+.colorfca9c8Back{background-color: #BFBFBF;color: #ffffff;text-align: center;}
+.colorF8B551Back{background-color: #F8B551;color: #ffffff;text-align: center;}
+.finishColorBack{background-color:#85d74f;color: #ffffff;text-align: center;}
+.colorF8B551Back{background-color:#F8B551;color: #ffffff;text-align: center;}
+
+.tick{width: 20px;float: right;} 
+.color858585{color: #858585;}
+/*.fileFolder{width: 20px;height: 20px;}*/
+.paddingLeft0{padding-left: 0px !important;}
+.paddingTop0{padding-top: 0px !important;}
+.paddingBottom0{padding-bottom:0px !important;}
+.marginTop0{margin-top: 0px !important;}
+.paddingLeft18{padding-left: 18px !important;}
+.paddingRight18{padding-right: 18px !important;}
+.paddingRight0{padding-right:0px !important;}
+.colorf9f9f{color: #9f9f9f;}
+.marginTop10:{margin-top: 10px !important;}
+.paddingRight15{padding-right: 15px !important;}
+.secCRF{padding:0px 15px 0px 18px !important;}
+.paddingRight35{padding-right: 35px !important;}
+.marginBotton0{margin-bottom: 0px !important;}
+.groupIcon{position: relative;width: 20px;top: 3px;}
+.tickSelected{border: 1px solid #cacaca;position: relative;top: 3px;}
+.squareCheckbox{width: 18px;height: 18px;border: 1px solid #cacaca;position: relative;top: 3px;display: inline-block;}
+.btnSave{border:none;  height:40px;padding:0px 0px;background:#62df96;margin-left: 10px;margin-right: 10px;width: 95%; color: white; border: 0 none.a;}
+.btnDelete{height:40px;padding:0px 0px; margin-left: 10px;margin-right: 10px;width: 95%;}
+.save-white{position: relative;width: 20px;top: 3px;}
+.top3{position: relative;top:3px;}
+.paddingLeft25 {padding-top: 10px;padding-left: 25px;border-top: 1px solid #ddd;}
+.lineHeight3 {line-height: 3;}
+.detailBlueIcon{position: relative;width: 20px;top: 3px;}
+.borderBottom1{border-bottom:1px solid #ddd;}
+.fontSize17{font-size: 17px;}
+.secCRF{margin-bottom: 0px !important;}
+.textCenter{text-align: center;}
+/*tab颜色*/
+.mui-segmented-control{border: 1px solid #52acff;}
+.mui-segmented-control .mui-control-item.mui-active{background-color: #52acff;}
+.mui-segmented-control .mui-control-item{border-color: #52acff;border-left: 1px solid #52acff;}
+.remind-clock{width: 20px;position: relative;top: 3px;}
+/*.pickClass,.dataPickClass{display: block;
+    text-align: right !important;} */  
+
+.ui-flex {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+}
+
+.ui-flex-item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.align-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+/* clearfix */
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
+.cf { *zoom: 1
+}
+
+.patient-group-detail .btn-choicecircle { text-align: left;}
+		.patient-group-detail .btn-choicecircle .btn-choicebox { /*position: relative;*//*margin-left: 10px;*/}
+		
+		.patient-group-detail .btn-choicecircle input { /*position: absolute;*/ left: -20px; top: 2px;}
+		.btn-choicebox label{padding: 1px 15px;}
+		.patient-group-detail .mui-text-right { display: block; /*max-width: 140px; text-align: right;*/}
+		/*.patient-group-detail .pickClass,
+		.patient-group-detail .dataPickClass,*/
+		.patient-group-detail .mui-text-right input[type="text"] {margin: -10px -15px -10px 0;  text-align: right; display: inline-block !important;}
+		
+		/*.patient-group-detail .pickClass,
+		.patient-group-detail .dataPickClass {height:40px;line-height:40px;margin-top: 1px;padding-right: 20px;
+    padding-bottom: 15px;
+    padding-left: 0px;  }
+		.patient-group-detail .dataPickClass { width: 140px; min-height: 40px; padding: 0px 15px;}*/
+		.patient-group-detail .mui-table-view-cell .title { padding: 0 0 0 24px; line-height:20px; background: url(../../image/circle-green.png) no-repeat 0 2px; }
+		
+.patient-group-detail .mui-table-view-cell:nth-child(2n) .title {background-image: url(../../image/circle-pink.png); }
+.mui-table-view-cell:after{left: 0px;}
+
+
+/*未录入 粉色*/
+.unenterColor{color: #FCA9C8;}
+
+/*录入中SDV中、录入中*/
+.enterColor{color: #969696;}
+
+/*已完成未SDV、已完成SDV中、已完成已SDV*/
+  .finishedColor{color: #85D74F;}
+  
+/*提交中未SDV、提交中SDV中、提交中已SDV*/
+ .submitingColor{color:#887df3;}
+
+/*已提交未SDV、已提交SDV中、已提交已SDV*/
+.submitedColor{color:#67D3F0;}
+
+/*清理中未SDV、清理中SDV中、清理中已SDV*/
+.clearingColor{color:#f4d061;}
+
+/*已清理未SDV、已清理SDV中、已清理已SDV*/
+.clearedColor{color:#d690e7;}
+
+.clearedEntered{color:#9197e7;}
+.clearedFollowup{color:#d690e7;}
+.clearedCancelled{color:#adaebc;}
+
+.img_box{
+	width:50px;
+	height:50px;
+	position:relative;
+	float: left;
+    margin-right:10px;
+    margin-top:10px;
+}
+
+.img_box img{
+	width:50px;
+	height:50px;
+}
+.img_box .img_url{
+	display: block;
+	width:50px;
+	height:50px;
+	background: no-repeat center center;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.img_box .del_icon{
+	position: absolute;
+	top:-10px;
+	right:-10px;
+	color:#f00;
+	cursor: default;
+	z-index:1001;
+	font-style:normal;
+	font-size:18px;
+	width:20px;
+	height:20px;
+	line-height: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 11px;
+	text-align: center;
+}
+.del_icon[disabled=true]{
+	display: none;
+}
+
+.fileupload{
+	width:50px;
+	height:50px;
+}
+
+.fileinput-button {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	width:50px !important;
+	height:50px;
+	background-color: #fff;
+	border:1px dashed #8c8c8c;
+	float: left !important;
+	margin-right:10px;
+    margin-left:0px;
+    margin-top: 10px;
+    /* float: none !important; */
+    z-index: 102;
+}
+.fileinput-button[disabled=true]{
+	background-color: #ccc;
+}
+.fileinput-button[disabled=true],input.fileupload[disabled=true]{
+	/*cursor:not-allowed;*/
+}
+.fileinput-button[disabled=true] .glyphicon-plus{
+	color:#fff;
+}
+
+.fileinput-button .glyphicon-plus{
+    /* font-size: 50px;
+    position: absolute;
+    left: 7px;
+    margin-top: 2px; */
+    display: none;
+}
+
+.fileinput-button:before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -1px;
+    background-color: #aaabb2;
+}
+.fileinput-button:after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    left: 50%;
+    top: 50%;
+    margin-left: -1px;
+    margin-top: -15px;
+    background-color: #aaabb2;
+}
+
+.fileinput-button[disabled=disabled]{
+	background-color: #ccc;
+}
+
+.fileinput-button input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	opacity: 0;
+	-ms-filter: 'alpha(opacity=0)';
+	font-size: 200px !important;
+	direction: ltr;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.fileinput-button .glyphicon-plus{
+	color:#c4c4c4;
+    top:50%;
+    margin-top:-10px;
+}
+
+.fileinput-button[disabled=disabled] .glyphicon-plus{
+	color:#fff;
+}
+
+.td_model_pic{
+	display: inline-block;
+	/* width: 70%; */
+	/* padding:5px 0 5px 10px; */
+    vertical-align: middle;
+    max-width: 195px;
+}
+
+.td_model_pic .fileinput-button{
+    margin-top: 10px;
+}
+
+input.fileupload{
+	height:50px !important;
+}
+
+.mui-preview-image.mui-fullscreen{
+	z-index: 10000 !important;
+}

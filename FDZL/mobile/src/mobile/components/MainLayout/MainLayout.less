@@ -1,0 +1,58 @@
+
+// .normal {
+//     display: flex;
+//     flex-direction: column;
+//     height: 100%;
+//   }
+  
+//   .content {
+//     flex: 1;
+//     display: flex;
+//   }
+  
+//   .main {
+//     padding: 0 8px;
+//     flex: 1 0 auto;
+//   }
+  #footTab {
+    width:100%;
+    max-width: 800px;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    :global{
+      .am-tab-bar-tab{
+        height: 36px;
+        border-right: 1px solid #d3d3d3;
+      }
+      .am-tab-bar-tab:last-child{
+        border-right: none;
+      }
+    }
+  }
+  #tab-bar .demoName {
+    height: 40px;
+  }
+  #tab-bar .demo-preview-item .am-tab-bar {
+    background-color: white;
+  }
+
+  .content{
+    padding-bottom: 50px;
+  }
+
+  .foot_icon{
+    font-size: 20px;
+    &.foot_icon_selected{
+      color:#62cf96;
+    }
+  }
+  .indexlog{
+    :global{
+      .logo_top_bar{
+    background: linear-gradient(to right, #87c0e8, #88eec4);
+    color: white;
+    //background-size: 100% 100%;
+      }
+    }
+  }
